@@ -39,7 +39,7 @@ filetype plugin indent on
 "Colors
 "-------
 syntax on
-colorscheme molokai
+colorscheme badwolf
 "-------
 
 "Spaces
