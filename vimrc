@@ -105,6 +105,15 @@ nnoremap ^ <nop>
 nnoremap $ <nop>
 "leader
 let mapleader=","
+"buffer switching
+map <leader>l :bn<CR>
+map <leader>h :bp<CR>
+"window switching
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 "-------
 
 "Comments
@@ -122,7 +131,9 @@ nnoremap <leader>s :mksesssion<CR>
 
 "CtrlP
 "-------
-let g:ctrlp_max_files=0
+let g:ctrlp_show_hidden=1
+let g:ctrlp_switch_buffer=0
+let g:ctrlp_working_path_mode=0
 "-------
 
 "Airline
