@@ -23,7 +23,7 @@
 ":Gread     : read from HEAD (git checkout basically)
 ":Gwrite    : add to index when on work tree, checkout when on index
 ":Git <>    : git command 
-
+":Gdiff     : git diff
 
 "-------
 "allow backspacing over everything in insert mode
