@@ -15,7 +15,6 @@
 "<leader>n  : next syntax error
 "<leader>N  : previous syntax error
 "]c,[c      : next and previous changes in vimdiff
-"
 
 "-------
 "allow backspacing over everything in insert mode
