@@ -16,6 +16,15 @@
 "<leader>N  : previous syntax error
 "]c,[c      : next and previous changes in vimdiff
 
+":Gstatus   : get status, press - to add files to index
+":Gedit     : edit file in index
+":Gvsplit   : open file in index in a vertical window and edit 
+":Gcommit -m: commit index files to HEAD with message
+":Gread     : read from HEAD (git checkout basically)
+":Gwrite    : add to index when on work tree, checkout when on index
+":Git <>    : git command 
+
+
 "-------
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
