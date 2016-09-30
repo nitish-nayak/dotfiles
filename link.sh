@@ -2,7 +2,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_backup
-files="bashrc vimrc"
+files="vimrc"
 
 
 # create dotfiles_old in homedir
