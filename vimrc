@@ -15,6 +15,9 @@
 "<leader>n  : next syntax error
 "<leader>N  : previous syntax error
 "]c,[c      : next and previous changes in vimdiff
+"vi<>       : select text block between parentheses 
+"ci<>       : change text block between parentheses 
+":w!!       : write with sudo permissions
 
 ":Gstatus   : get status, press - to add files to index
 ":Gedit     : edit file in index
@@ -70,6 +73,11 @@ filetype plugin indent on
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"-------
+
+"Misc
+"-------
+cmap w!! %!sudo tee > /dev/null %
 "-------
 
 "Colors
@@ -152,8 +160,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-"select text between quotes : vi" , to change : ci" : change if it starts to
-"get uncomfortable
 "-------
 
 "Comments
