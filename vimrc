@@ -77,7 +77,7 @@ filetype plugin indent on
 
 "Misc
 "-------
-cmap w!! %!sudo tee > /dev/null %
+cmap w!! w !sudo tee > /dev/null %
 "-------
 
 "Colors
