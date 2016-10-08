@@ -27,6 +27,25 @@
 ":Gwrite    : add to index when on work tree, checkout when on index
 ":Git <>    : git command 
 ":Gdiff     : git diff
+"
+" <C-f>     : bring up command history
+" <S-Left>  : cursor one word left 
+" <S-Right> : cursor one word right
+" <C-b>     : cursor to beginning of command-line                                                                                                                                                     
+" <C-e>     : cursor to end of command-line
+" <C-w>     : delete word before cursor
+" <C-u>     : delete all chars before cursor
+" :<C-r> and below for command line options
+"         '"'   the unnamed register, containing the text of the last delete or yank
+"         '%'   the current file name
+"         '#'   the alternate file name
+"         '*'   the clipboard contents (X: primary selection)
+"         ''    the clipboard contents
+"         '/'   the last search pattern
+"         ':'   the last command-line
+"         '-'   the last small (less than a line) delete
+"         '.'   the last inserted text
+"         '='   the expression register
 
 "-------
 "allow backspacing over everything in insert mode
@@ -160,6 +179,8 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+"copy to clipboard
+map <C-c> "*y<CR>
 "-------
 
 "Comments

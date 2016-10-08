@@ -4,7 +4,7 @@ alias du='du -kH'
 alias df='df -kH'
 
 #Kerberos
-alias kinit='kinit bnayak'
+alias kinit='kinit -l 7d bnayak'
 
 #root
 if [ "$(uname)" == "Darwin" ]; then
