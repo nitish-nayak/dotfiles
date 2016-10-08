@@ -47,6 +47,11 @@
 "         '.'   the last inserted text
 "         '='   the expression register
 
+":CtrlP path: Change workspace for CtrlP, can also use :cd /path/to/dir
+" <C-x>     : Open CtrlP files in new horizontal split  
+" <C-v>     : Open CtrlP files in new vertical split  
+" <C-n>     : Bring up NerdTree
+
 "-------
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -80,6 +85,8 @@ Plugin 'scrooloose/syntastic'
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+"NerdTree
+Plugin 'scrooloose/nerdtree'
 
 "All of your Plugins must be added before the following line
 call vundle#end()           
@@ -230,3 +237,7 @@ map <leader>N :lprevious<CR>
 "Fugitive
 "-------
 set statusline+=%{fugitive#statusline()}
+
+"NerdTree
+"-------
+map <C-n> :NERDTreeToggle<CR>
