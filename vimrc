@@ -87,7 +87,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 "NerdTree
 Plugin 'scrooloose/nerdtree'
-
+"Faster CtrlP
+Plugin 'FelikZ/ctrlp-py-matcher'
 "All of your Plugins must be added before the following line
 call vundle#end()           
 filetype plugin indent on  
@@ -208,6 +209,7 @@ nnoremap <leader>s :mksesssion<CR>
 let g:ctrlp_show_hidden=1
 let g:ctrlp_switch_buffer=0
 let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 "-------
 
 "Airline
