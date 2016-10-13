@@ -51,6 +51,7 @@
 " <C-x>     : Open CtrlP files in new horizontal split  
 " <C-v>     : Open CtrlP files in new vertical split  
 " <C-n>     : Bring up NerdTree
+"
 
 "-------
 "allow backspacing over everything in insert mode

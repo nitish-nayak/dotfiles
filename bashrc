@@ -1,13 +1,11 @@
-# Get readable output
-alias ls='ls -GFh'
-alias ll='ls -lGFh'
-alias la='ls -aGFh'
-alias lla='ls -alGFh'
-alias du='du -kHh'
-alias df='df -kHh'
+#set aliases
+export BASH_ENV=$HOME/.bash_aliases
+source $BASH_ENV
 
-#Kerberos
-alias kinit='kinit -l 7d bnayak'
+#terminal colours
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1        
+export LSCOLORS=ExFxBxDxCxegedabagacad
 
 #root
 if [ "$(uname)" == "Darwin" ]; then
