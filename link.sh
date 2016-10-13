@@ -2,7 +2,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_backup
-files="bashrc bash_profile bash_aliases vimrc"
+files="bashrc bash_aliases vimrc"
 
 
 # create dotfiles_old in homedir
@@ -17,7 +17,7 @@ echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    if [ "$file" == "bashrc" -o "$file" == "bash_profile" ]; then
+    if [ "$file" == "bashrc" ]; then
             echo "source $dir/$file" >> ~/.$file
     else        
             if [ -f "$HOME/.$file" ]; then  
