@@ -1,6 +1,6 @@
 "Nitish
 
-"To remember for workflow (Why do I forget things so easily!) : 
+"To remember for workflow, alternatively :map : 
 "<leader>cc : comments visual block
 "<leader>cy : comments and yanks visual block
 "<leader>cu : uncomments visual block
