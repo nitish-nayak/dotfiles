@@ -5,13 +5,14 @@
 "<leader>cy : comments and yanks visual block
 "<leader>cu : uncomments visual block
 "<space>    : opens fold
-"<leader>l  : next buffer
-"<leader>h  : previous buffer
-"<leader>q  : close buffer
-"<C-h,j,k,l>: moving between windows
-":new,:vnew : new horizontal/vertical windows
+"<leader> 
+"   h,j,k,l : moving between windows
+"   s,v     : new horizontal/vertical windows
+"   ]       : next buffer
+"   [       : previous buffer
+"   d       : close buffer
 "<leader>u  : undo tree
-"<leader>s  : save sessions windows
+"<leader>`  : save sessions windows
 "<leader>n  : next syntax error
 "<leader>N  : previous syntax error
 "]c,[c      : next and previous changes in vimdiff
@@ -31,7 +32,7 @@
 " <C-f>     : bring up command history
 " <S-Left>  : cursor one word left 
 " <S-Right> : cursor one word right
-" <C-b>     : cursor to beginning of command-line                                                                                                                                                     
+" <C-b>     : cursor to beginning of command-line 
 " <C-e>     : cursor to end of command-line
 " <C-w>     : delete word before cursor
 " <C-u>     : delete all chars before cursor
@@ -64,6 +65,7 @@ set nocompatible
 "-------
 filetype off
 set rtp+=$HOME/.vim/bundle/Vundle.vim
+"set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 call vundle#begin('$HOME/.vim/bundle')
 
 "Vundle - required
@@ -73,11 +75,14 @@ Plugin 'scrooloose/nerdcommenter'
 "Get undo tree
 Plugin 'sjl/gundo.vim'
 "Command-T
-Plugin 'wincent/command-t' 
+"Plugin 'wincent/command-t' 
 "Ctrl-P
 Plugin 'kien/ctrlp.vim'
 "Status Bar
 Plugin 'vim-airline/vim-airline'
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
 "Python 
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
@@ -90,6 +95,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 "Faster CtrlP
 Plugin 'FelikZ/ctrlp-py-matcher'
+"Compiling
+Plugin 'tpope/vim-dispatch'
+
 "All of your Plugins must be added before the following line
 call vundle#end()           
 filetype plugin indent on  
@@ -180,14 +188,17 @@ nnoremap $ <nop>
 "leader
 let mapleader=","
 "buffer switching
-map <leader>l :bn<CR>
-map <leader>h :bp<CR>
-map <leader>q :bd<CR>
-"window switching
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+map <leader>] :bn<CR>
+map <leader>[ :bp<CR>
+map <leader>d :bd<CR>
+"window management
+map <leader>v <C-w>v
+map <leader>s <C-w>s
+map <leader>h <C-w>h
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>l <C-w>l
+
 "copy to clipboard
 map <C-c> "*y<CR>
 "-------
@@ -203,7 +214,7 @@ let g:NERDCommentEmptyLines=1
 
 nnoremap <leader>u :GundoToggle<CR>
 "save session
-nnoremap <leader>s :mksesssion<CR>
+nnoremap <leader>` :mksesssion<CR>
 
 "CtrlP
 "-------

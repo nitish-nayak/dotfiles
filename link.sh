@@ -2,7 +2,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_backup
-files="bashrc bash_aliases vimrc"
+files="bashrc bash_aliases vimrc tmux.conf"
 
 
 # create dotfiles_old in homedir
