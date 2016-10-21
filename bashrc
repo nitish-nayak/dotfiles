@@ -11,3 +11,10 @@ export LSCOLORS=DxFxBxDxCxegedabagacad
 if [ "$(uname)" == "Darwin" ]; then
     . $(brew --prefix root6)/libexec/thisroot.sh
 fi
+
+#rename multiple files
+function supermv () {
+        FILES="$2"
+        PATTERN="$1"
+        for i in $FILES; do N=$( echo "$i" | sed "$PATTERN" ); mv "$i" "$N"; done
+}
