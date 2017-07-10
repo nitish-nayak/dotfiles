@@ -70,33 +70,20 @@ call vundle#begin('$HOME/.vim/bundle')
 
 "Vundle - required
 Plugin 'VundleVim/Vundle.vim'
-"Commenting
+
+Plugin 'benmills/vimux'
 Plugin 'scrooloose/nerdcommenter'
-"Get undo tree
 Plugin 'sjl/gundo.vim'
-"Command-T
-"Plugin 'wincent/command-t' 
-"Ctrl-P
 Plugin 'kien/ctrlp.vim'
-"Status Bar
 Plugin 'vim-airline/vim-airline'
-" python from powerline.vim import setup as powerline_setup
-" python powerline_setup()
-" python del powerline_setup
-"Python 
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
-"Syntax Checking
-Plugin 'scrooloose/syntastic'
-"Git
+" Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-"NerdTree
 Plugin 'scrooloose/nerdtree'
-"Faster CtrlP
 Plugin 'FelikZ/ctrlp-py-matcher'
-"Compiling
-Plugin 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-dispatch'
 
 "All of your Plugins must be added before the following line
 call vundle#end()           
@@ -124,9 +111,10 @@ colorscheme badwolf
 
 "Spaces
 "-------
-set tabstop=4
-set softtabstop=4
+" set tabstop=4
 set expandtab
+set shiftwidth=2
+set softtabstop=2
 "-------
 
 "UI
@@ -201,6 +189,9 @@ map <leader>l <C-w>l
 
 "copy to clipboard
 map <C-c> "*y<CR>
+
+"regexp search - permanent
+cnoremap s/ s/\v
 "-------
 
 "Comments
@@ -228,25 +219,30 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 "-------
 let g:airline#extensions#tabline#enabled = 1
 
+"Vimux
+"-------
+map <leader>vp :VimuxPromptCommand<CR>                                                                                                                                                                
+map <Leader>vl :VimuxRunLastCommand<CR>
+
 "Jedi-Vim
 "-------
-let g:jedi#use_splits_not_buffers = "bottom"
+" let g:jedi#use_splits_not_buffers = "bottom"
 
 "Syntastic
 "-------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_python_checkers = ['pylint']
-
-map <leader>n :lnext<CR>
-map <leader>N :lprevious<CR>
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+"
+" let g:syntastic_python_checkers = ['pylint']
+"
+" map <leader>n :lnext<CR>
+" map <leader>N :lprevious<CR>
 
 "Fugitive
 "-------

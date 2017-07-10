@@ -15,3 +15,6 @@ alias tmux='tmux -2'
 #Kerberos
 alias kinit='kinit -l 7d bnayak'
 
+#ssh
+alias ssh='ssh -X'
+

@@ -18,3 +18,6 @@ function supermv () {
         PATTERN="$1"
         for i in $FILES; do N=$( echo "$i" | sed "$PATTERN" ); mv "$i" "$N"; done
 }
+
+# Make box around text @climagic
+function box() { t="$1xxxx";c=${2:-=}; echo ${t//?/$c}; echo "$c $1 $c"; echo ${t//?/$c}; }
