@@ -1,58 +1,6 @@
 "Nitish
-
-"To remember for workflow, alternatively :map : 
-"<leader>cc : comments visual block
-"<leader>cy : comments and yanks visual block
-"<leader>cu : uncomments visual block
-"<space>    : opens fold
-"<leader> 
-"   h,j,k,l : moving between windows
-"   s,v     : new horizontal/vertical windows
-"   ]       : next buffer
-"   [       : previous buffer
-"   d       : close buffer
-"<leader>u  : undo tree
-"<leader>`  : save sessions windows
-"<leader>n  : next syntax error
-"<leader>N  : previous syntax error
-"]c,[c      : next and previous changes in vimdiff
-"vi<>       : select text block between parentheses 
-"ci<>       : change text block between parentheses 
-":w!!       : write with sudo permissions
-
-":Gstatus   : get status, press - to add files to index
-":Gedit     : edit file in index
-":Gvsplit   : open file in index in a vertical window and edit 
-":Gcommit -m: commit index files to HEAD with message
-":Gread     : read from HEAD (git checkout basically)
-":Gwrite    : add to index when on work tree, checkout when on index
-":Git <>    : git command 
-":Gdiff     : git diff
-"
-" <C-f>     : bring up command history
-" <S-Left>  : cursor one word left 
-" <S-Right> : cursor one word right
-" <C-b>     : cursor to beginning of command-line 
-" <C-e>     : cursor to end of command-line
-" <C-w>     : delete word before cursor
-" <C-u>     : delete all chars before cursor
-" :<C-r> and below for command line options
-"         '"'   the unnamed register, containing the text of the last delete or yank
-"         '%'   the current file name
-"         '#'   the alternate file name
-"         '*'   the clipboard contents (X: primary selection)
-"         ''    the clipboard contents
-"         '/'   the last search pattern
-"         ':'   the last command-line
-"         '-'   the last small (less than a line) delete
-"         '.'   the last inserted text
-"         '='   the expression register
-
-":CtrlP path: Change workspace for CtrlP, can also use :cd /path/to/dir
-" <C-x>     : Open CtrlP files in new horizontal split  
-" <C-v>     : Open CtrlP files in new vertical split  
-" <C-n>     : Bring up NerdTree
-"
+":map
+":help quickref
 
 "-------
 "allow backspacing over everything in insert mode
@@ -173,6 +121,7 @@ nnoremap W gg
 nnoremap S GG
 nnoremap ^ <nop>
 nnoremap $ <nop>
+nnoremap ] %
 "leader
 let mapleader=","
 "buffer switching
