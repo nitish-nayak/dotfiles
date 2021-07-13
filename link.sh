@@ -29,3 +29,8 @@ for file in $files; do
     fi
 done
 
+file="./nitish_robbyrussell_modified.zsh-theme"
+if [[ -f "$file" ]]; then
+  echo "Copying custom ZSH theme"
+  cp "$file" ~/.oh-my-zsh/themes/.
+fi

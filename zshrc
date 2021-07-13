@@ -64,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-export LS_COLORS=$LS_COLORS"*.C=1;35:*.root=1;36:*.py=1;31"
+# export LS_COLORS=$LS_COLORS"*.C=1;35:*.root=1;36:*.py=1;31"
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -87,10 +87,10 @@ export LS_COLORS=$LS_COLORS"*.C=1;35:*.root=1;36:*.py=1;31"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Get readable output
-alias ls='ls -GFh --color=auto'
-alias ll='ls -lGFh --color=auto'
-alias la='ls -aGFh --color=auto'
-alias lla='ls -alGFh --color=auto'
+alias ls='ls -GFh'
+alias ll='ls -lGFh'
+alias la='ls -aGFh'
+alias lla='ls -alGFh'
 alias du='du -kHh'
 alias df='df -kHh'
 
@@ -101,9 +101,15 @@ alias tmux='tmux -2'
 alias kinit='kinit -l 7d bnayak'
 
 #ssh
-alias ssh='ssh -X'
+alias ssh='ssh -X -Y'
+alias sshgpu='ssh -X -Y nitish@128.200.48.165'
+alias sshroc1='ssh -X -Y rocirvine1@128.200.48.171'
+alias sshroc2='ssh -X -Y rocirvine2@128.200.48.169'
+alias sshroc3='ssh -X -Y rocirvine3@128.200.48.164'
 
 #syntax-highlighting
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #vim mode
 source $ZSH_CUSTOM/plugins/zsh-vimto/zsh-vimto.zsh
+export PYTHONPATH=~/Projects/NOvA/HDF5:$PYTHONPATH
+export PYTHONPATH=/usr/local/opt/root/lib/root:$PYTHONPATH
