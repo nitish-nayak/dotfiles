@@ -2,7 +2,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_backup
-files="bashrc bash_aliases vimrc tmux.conf zshrc"
+files="bashrc bash_aliases vimrc tmux.conf zshrc tmux-powerlinerc"
 
 
 # create dotfiles_old in homedir
@@ -34,3 +34,11 @@ if [[ -f "$file" ]]; then
   echo "Copying custom ZSH theme"
   cp "$file" ~/.oh-my-zsh/themes/.
 fi
+
+# for tmux powerline stuff
+echo "Configuring my tmux powerline"
+TMUX_POWERLINE_PATH="/home/nitish/.tmux/plugins/tmux-powerline/"
+cp -r tmux-powerline-theme.sh $TMUX_POWERLINE_PATH"/themes/." 
+for seg in `ls ./tmux-powerline-segments`; do
+  cp $i $TMUX_POWERLINE_PATH"/segments/."
+done
