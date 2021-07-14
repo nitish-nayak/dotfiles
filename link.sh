@@ -1,5 +1,21 @@
 #!/bin/bash
 
+## requires : 
+# zsh
+# git
+# tmux
+# vim
+# curl
+
+# install oh-my-zsh
+echo "Installing Oh-My-ZSH"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# vim theme : badwolf
+echo "Getting my vim theme"
+git clone https://github.com/sjl/badwolf.git
+cp -r badwolf/colors ~/.vim/.
+
 dir=~/dotfiles
 olddir=~/dotfiles_backup
 files="bashrc bash_aliases vimrc tmux.conf zshrc"
@@ -34,3 +50,9 @@ if [[ -f "$file" ]]; then
   echo "Copying custom ZSH theme"
   cp "$file" ~/.oh-my-zsh/themes/.
 fi
+
+## install oh-my-zsh plugins
+echo "Installing some of my favorite oh-my-zsh plugins.."
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/laurenkt/zsh-vimto ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vimto
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
