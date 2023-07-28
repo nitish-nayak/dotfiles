@@ -19,16 +19,16 @@ call vundle#begin('$HOME/.vim/bundle')
 "Vundle - required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'benmills/vimux'
+" Plugin 'benmills/vimux'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline' "keep
 " Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab' "keep
 " Plugin 'scrooloose/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter' "keep
+Plugin 'tpope/vim-fugitive' "keep
 Plugin 'scrooloose/nerdtree'
 Plugin 'FelikZ/ctrlp-py-matcher'
 " Plugin 'tpope/vim-dispatch'
@@ -170,8 +170,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 "Vimux
 "-------
-map <leader>vp :VimuxPromptCommand<CR>                                                                                                                                                                
-map <Leader>vl :VimuxRunLastCommand<CR>
+" map <leader>vp :VimuxPromptCommand<CR>
+" map <Leader>vl :VimuxRunLastCommand<CR>
 
 "Jedi-Vim
 "-------

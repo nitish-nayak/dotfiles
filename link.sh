@@ -11,11 +11,6 @@
 echo "Installing Oh-My-ZSH"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# vim theme : badwolf
-echo "Getting my vim theme"
-git clone https://github.com/sjl/badwolf.git
-cp -r badwolf/colors ~/.vim/.
-
 dir=~/dotfiles
 olddir=~/dotfiles_backup
 files="bashrc bash_aliases vimrc tmux.conf zshrc tmux-powerlinerc"

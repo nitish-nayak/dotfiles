@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/home/nitish/uboone/wcp-uboone-bdt/bin:$PATH
+export LD_LIBRARY_PATH=/home/nitish/uboone/wcp-uboone-bdt/lib:$LD_LIBRARY_PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -62,10 +63,10 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-alias ls='ls --color=auto -GFh'
-alias ll='ls --color=auto -lGFh'
-alias la='ls --color=auto -aGFh'
-alias lla='ls --color=auto -alGFh'
+alias ls='ls --color=auto -GFhX'
+alias ll='ls --color=auto -lGFhX'
+alias la='ls --color=auto -aGFhX'
+alias lla='ls --color=auto -alGFhX'
 alias du='du -kHh'
 alias df='df -kHh'
 
@@ -82,9 +83,32 @@ alias sshroc1='ssh -X -Y rocirvine1@128.200.48.171'
 alias sshroc2='ssh -X -Y rocirvine2@128.200.48.169'
 alias sshroc3='ssh -X -Y rocirvine3@128.200.48.164'
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=39'
 #syntax-highlighting
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #vim mode
 source $ZSH_CUSTOM/plugins/zsh-vimto/zsh-vimto.zsh
-export PYTHONPATH=~/Projects/NOvA/HDF5:$PYTHONPATH
-export PYTHONPATH=/usr/local/opt/root/lib/root:$PYTHONPATH
+export GOPATH=${HOME}/go
+export PATH=${HOME}/hacked_singularity/v3.0.3/bin:/usr/local/go/bin:${PATH}:${GOPATH}/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# root
+source /opt/root/bin/thisroot.sh
+
+function run_vnc() {
+    VNCNUM="$1" #CHANGE THIS NUMBER TO WHATEVER VNC SERVER NUMBER YOU PICKED
+    export DISPLAY=localhost:$VNCNUM #Export the display to point to the VNC server
+    if [ `lsof -i -P -n | grep $(expr 5900 + ${VNCNUM}) | wc -l` -eq 0 -o `lsof -i -P -n | grep $(expr 6000 + ${VNCNUM}) | wc -l` -eq 0 ]
+    then
+      echo "vncserver :$VNCNUM not running.  Starting now...."
+      vncserver :$VNCNUM -localhost -bs    #Check if the VNC server is running and start it if not (-localhost mandatory!)
+    else
+      echo "vncserver :$VNCNUM already running (hopefully owned by you).  Not attempting to start thevncserver..."
+    fi
+}
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
