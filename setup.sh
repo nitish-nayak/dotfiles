@@ -1,0 +1,29 @@
+#!/bin/bash
+
+## requires :
+# zsh
+# git
+# tmux
+# vim
+# curl
+# python for neovim (with modules defined in nvim/requirements.txt)
+
+
+# Make box around text @climagic
+function box() { t="$1xxxx";c=${2:-=}; echo ${t//?/$c}; echo "$c $1 $c"; echo ${t//?/$c}; }
+
+dir=`pwd`
+olddir="$HOME/".backup
+config_folders="shell vim tmux neovim"
+
+echo "Creating backup folder"
+if [ ! -d "$olddir" ]; then
+    mkdir -p "$olddir"
+fi
+
+echo "Setting up my config for : "
+for c in $config_folders; do
+    echo box "$c"
+    cd $c
+    source requirements.sh
+done
