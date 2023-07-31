@@ -23,8 +23,8 @@ function setup_shell {
     ln -s `pwd`/custom/aliases ~/.aliases
 
     echo "Setting up shell rc"
-    ln -s `pwd`/zshrc "$HOME"/.myzshrc
-    ln -s `pwd`/bashrc "$HOME"/.mybashrc
+    ln -s `pwd`/zshrc "$HOME"/.myzshrc.sh
+    ln -s `pwd`/bashrc "$HOME"/.mybashrc.sh
 
     if ! [ -f "$HOME/.zshrc" ]; then
         echo "Creating zshrc"
@@ -34,8 +34,8 @@ function setup_shell {
         echo "Creating bashrc"
         touch "$HOME/.bashrc"
     fi
-    echo "source $HOME/.myzshrc" >> "$HOME/.zshrc"
-    echo "source $HOME/.mybashrc" >> "$HOME/.bashrc"
+    echo "source $HOME/.myzshrc.sh" >> "$HOME/.zshrc"
+    echo "source $HOME/.mybashrc.sh" >> "$HOME/.bashrc"
 
     install_zshutils
     echo "Setting up zsh theme"

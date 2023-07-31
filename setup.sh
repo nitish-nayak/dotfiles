@@ -23,7 +23,7 @@ fi
 
 echo "Setting up my config for : "
 for co in $config_folders; do
-    echo box "$co"
+    box "$co"
     cd $co
     source requirements.sh
     cd $dir
