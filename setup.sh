@@ -6,7 +6,7 @@
 # tmux
 # vim
 # curl
-# python for neovim (with modules defined in nvim/requirements.txt)
+# python for neovim (with modules defined in nvim/pyrequirements.txt)
 
 
 # Make box around text @climagic
@@ -25,6 +25,6 @@ echo "Setting up my config for : "
 for co in $config_folders; do
     box "$co"
     cd $co
-    source requirements.sh
+    source install.sh
     cd $dir
 done
