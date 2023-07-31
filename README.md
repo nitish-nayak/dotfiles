@@ -1,32 +1,17 @@
-Run link.sh to backup old dotfiles and symlink dotfiles in home directory
+Run setup.sh to backup old config and symlink relevant dotfiles in the home directory
 ```
+ git clone https://github.com/nitish-nayak/dotfiles.git ~/dotfiles
  cd ~/dotfiles
- chmod +x link.sh
-./link.sh
+./setup.sh
 ```
 
+`setup.sh` runs through each folder given here, cd's into it and runs `requirements.sh`
 
-To install vim plugins, first install Vundle
-```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
-then install in vim with 
-```
-:BundleInstall
-```
-or from commandline 
-```
-vim +PluginInstall +qall
-```
-To enable colorschemes in vim copy appropriate file into .vim/colors
-
-
-To install tmux plugins, first install TPM
-```
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-then install in tmux with
-```
-tmux source ~/.tmux.conf
-<prefix + I>
-```
+Require : 
+1. zsh
+2. git
+3. tmux
+4. vim
+5. curl
+6. neovim
+7. python for neovim (with modules defined in nvim/requirements.txt) 
