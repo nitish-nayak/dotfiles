@@ -29,6 +29,8 @@ function setup_tmux {
     ln -s `pwd`/tmux.conf "$HOME"/.tmux.conf
 
     install_tmuxutils
+    echo "Linking tmux powerline"
+    ln -s `pwd`/powerline/tmux-powerlinerc "$HOME"/.tmux-powerlinerc
 
 }
 
