@@ -13,6 +13,7 @@ pylint.args = {
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()
+    vim.diagnostic.enable()
     lint.try_lint()
   end,
 })
