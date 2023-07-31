@@ -22,8 +22,9 @@ if [ ! -d "$olddir" ]; then
 fi
 
 echo "Setting up my config for : "
-for c in $config_folders; do
-    echo box "$c"
-    cd $c
+for co in $config_folders; do
+    echo box "$co"
+    cd $co
     source requirements.sh
+    cd $dir
 done
