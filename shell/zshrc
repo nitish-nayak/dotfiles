@@ -43,7 +43,7 @@ source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #vim mode
 source $ZSH_CUSTOM/plugins/zsh-vimto/zsh-vimto.zsh
 
-#fzf 
+#fzf
 if [ -f ~/.fzf.zsh ]; then
     . ~/.fzf.zsh
 fi

@@ -14,7 +14,7 @@ function box() { t="$1xxxx";c=${2:-=}; echo ${t//?/$c}; echo "$c $1 $c"; echo ${
 
 dir=`pwd`
 olddir="$HOME/".backup
-config_folders="shell vim tmux neovim"
+config_folders="shell vim tmux nvim"
 
 echo "Creating backup folder"
 if [ ! -d "$olddir" ]; then
