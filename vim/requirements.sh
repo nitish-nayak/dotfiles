@@ -2,7 +2,7 @@
 
 function install_vimutils {
 
-    if [ ! -f ~/.vim/bundle/Vundle.vim ]; then
+    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
         echo "Installing Vundle"
         # install Vundle for vimrc
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
