@@ -1,3 +1,2 @@
 pynvim
 pylint
-ipython
