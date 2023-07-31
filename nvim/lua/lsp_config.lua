@@ -86,6 +86,8 @@ require("mason-lspconfig").setup_handlers {
     end
 }
 
+vim.diagnostic.disable()
+
 vim.diagnostic.config({
     virtual_text = false,
     signs = true,
