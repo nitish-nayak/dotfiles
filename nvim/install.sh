@@ -61,6 +61,7 @@ function setup_neovim {
     else
         echo "Creating backup"
         mv "$HOME/.config/nvim" "$HOME/.backup/."
+        mkdir -p "$HOME/.config/nvim/lua"
     fi
 
     echo "Installing vim-plug"
