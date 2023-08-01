@@ -2,9 +2,9 @@
 
 #rename multiple files
 function supermv () {
-        FILES="$2"
+        FILES="${@:2}"
         PATTERN="$1"
-        for i in $FILES; do N=$( echo "$i" | sed "$PATTERN" ); mv "$i" "$N"; done
+        for i in $~FILES; do N=$( echo "$i" | sed "$PATTERN" ); mv "$i" "$N"; done
 }
 
 # Make box around text @climagic
@@ -20,3 +20,30 @@ export EDITOR='nvim'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fzf
+if command -v bat &> /dev/null
+then
+        # Preview file content using bat (https://github.com/sharkdp/bat)
+        export FZF_CTRL_T_OPTS="
+          --preview 'bat -n --color=always {}'
+          --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+fi
+
+if command -v fd &> /dev/null
+then
+        export FZF_DEFAULT_COMMAND='fd --type file'
+        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
+
+# CTRL-/ to toggle small preview window to see the full command
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
