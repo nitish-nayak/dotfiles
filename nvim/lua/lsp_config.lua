@@ -39,6 +39,18 @@ require 'nvim-treesitter.configs'.setup {
     }
 }
 
+vim.g.diagnostics_active = true
+function _G.toggle_diagnostics()
+  if vim.g.diagnostics_active then
+    vim.g.diagnostics_active = false
+    vim.diagnostic.disable()
+  else
+    vim.g.diagnostics_active = true
+    vim.diagnostic.enable()
+  end
+end
+
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   -- Mappings.
@@ -56,12 +68,13 @@ local on_attach = function(client, bufnr)
 
   vim.keymap.set('n', '<leader>cn', vim.lsp.buf.rename, opts)
   vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
+  vim.keymap.set('n', '<leader>ct', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
 end
 
 
 require("mason").setup()
 require("mason-lspconfig").setup{
-  ensure_installed = { "pyright", "clangd", "lua_ls", "bashls"},
+  ensure_installed = { "pyright", "lua_ls", "bashls"},
 }
 
 -- new lsp servers get default on_attach and capabilities but can be configured differently
@@ -85,6 +98,8 @@ require("mason-lspconfig").setup_handlers {
          }
     end
 }
+
+vim.diagnostic.disable()
 
 vim.diagnostic.config({
     virtual_text = false,

@@ -27,7 +27,7 @@ function install_linux {
     curl -LO https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
     tar xvf shellcheck-stable.linux.x86_64.tar.xz
 
-    cp bat-v1.23.0-x86_64-unknown-linux-musl/bat "$cpexe"/.
+    cp bat-v0.23.0-x86_64-unknown-linux-musl/bat "$cpexe"/.
     cp fd-v8.7.0-x86_64-unknown-linux-musl/fd "$cpexe"/.
     cp ripgrep-13.0.0-x86_64-unknown-linux-musl/rg "$cpexe"/.
     cp shellcheck-stable/shellcheck "$cpexe"/.
@@ -41,6 +41,13 @@ function install_linux {
 
     echo "Installing nvm"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+    # run this first
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+    # now install node
     nvm install node
     nvm use node
 
@@ -54,6 +61,7 @@ function setup_neovim {
     else
         echo "Creating backup"
         mv "$HOME/.config/nvim" "$HOME/.backup/."
+        mkdir -p "$HOME/.config/nvim/lua"
     fi
 
     echo "Installing vim-plug"

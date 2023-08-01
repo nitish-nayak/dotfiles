@@ -195,6 +195,9 @@ noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gh :.GBrowse<CR>
 vnoremap <Leader>gh :.GBrowse<CR>
 
+" vim-gitgutter
+noremap <Leader>gt :GitGutterBufferToggle<CR>
+
 " telescope
 nnoremap <leader>ff  <cmd>Telescope find_files<cr>
 nnoremap <leader>fg  <cmd>Telescope live_grep<cr>
