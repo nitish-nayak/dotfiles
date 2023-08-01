@@ -28,7 +28,8 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 		#"ifstat 30 255" \
 		#"ifstat_sys 30 255" \
                 "lan_ip 24 255" \
-                "disk_usage 26 255" \
+                "tmux_ps_mem 26 255" \
+                # "disk_usage 26 255" \
 		# "wan_ip 24 255" \
 		# "vcs_branch 29 88" \
 		# "vcs_compare 60 255" \
@@ -55,7 +56,7 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		#"xkb_layout 125 117" \
 		"date_day 235 136" \
 		"date 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+                "time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi
