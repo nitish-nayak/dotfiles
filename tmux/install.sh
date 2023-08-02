@@ -9,12 +9,12 @@ function install_tmuxutils {
 
         echo "Configuring my tmux powerline"
         TMUX_POWERLINE_PATH="$HOME"/.tmux/plugins/tmux-powerline/
-        dest="$TMUX_POWERLINE_PATH"/themes/tmux-powerline-theme.sh
-        ln -s `pwd`/powerline/tmux-powerline-theme.sh $existing
+        dest="$TMUX_POWERLINE_PATH"themes/tmux-powerline-theme.sh
+        ln -s `pwd`/powerline/tmux-powerline-theme.sh "$dest"
 
         for seg in `pwd`/powerline/tmux-powerline-segments/*; do
-          dest="$TMUX_POWERLINE_PATH"segments/`basename "$seg"`
-          ln -s "$seg" "$existing"
+            dest="$TMUX_POWERLINE_PATH"segments/`basename "$seg"`
+            ln -s "$seg" "$dest"
         done
 
     fi
