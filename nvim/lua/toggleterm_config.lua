@@ -50,6 +50,7 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- my terminals
 local Terminal  = require('toggleterm.terminal').Terminal
+
 local htop = Terminal:new({
   cmd = "htop",
   hidden = true,
@@ -63,3 +64,17 @@ function _htop_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>1", "<cmd>lua _htop_toggle()<CR>", {noremap = true, silent = true})
+
+local make = Terminal:new({
+  cmd = "make install -j 4",
+  hidden = true,
+  direction = 'float',
+  dir = "$MRB_BUILDDIR",
+  close_on_exit = false, -- close the terminal window when the process exits
+})
+
+function _make_toggle()
+  make:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>2", "<cmd>lua _make_toggle()<CR>", {noremap = true, silent = true})
