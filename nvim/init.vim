@@ -63,6 +63,9 @@ Plug 'williamboman/mason-lspconfig.nvim'
 " use with pylint, shellcheck, (maybe cppcheck)
 Plug 'mfussenegger/nvim-lint'
 
+" toggleterm
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 call plug#end()
 
 "*****************************************************************************
@@ -271,3 +274,4 @@ lua require('telescope_config')
 lua require('cmp_config')
 lua require('lsp_config')
 lua require('lint_config')
+lua require('toggleterm_config')
