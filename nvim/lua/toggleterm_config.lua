@@ -78,3 +78,17 @@ function _make_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>2", "<cmd>lua _make_toggle()<CR>", {noremap = true, silent = true})
+
+local mrb = Terminal:new({
+  cmd = "mrb i --generator ninja",
+  hidden = true,
+  direction = 'float',
+  dir = "$MRB_BUILDDIR",
+  close_on_exit = false, -- close the terminal window when the process exits
+})
+
+function _mrb_toggle()
+  mrb:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>3", "<cmd>lua _mrb_toggle()<CR>", {noremap = true, silent = true})

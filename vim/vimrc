@@ -12,9 +12,10 @@ set nocompatible
 "Vundle
 "-------
 filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim
+set rtp+=/nashome/b/bnayak/.vim/bundle/Vundle.vim
+set rtp+=/nashome/b/bnayak/.vim
 "set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
-call vundle#begin('$HOME/.vim/bundle')
+call vundle#begin('/nashome/b/bnayak/.vim/bundle')
 
 "Vundle - required
 Plugin 'VundleVim/Vundle.vim'
