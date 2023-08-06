@@ -80,7 +80,7 @@ end
 vim.api.nvim_set_keymap("n", "<leader>2", "<cmd>lua _make_toggle()<CR>", {noremap = true, silent = true})
 
 local mrb = Terminal:new({
-  cmd = "mrb i --generator ninja",
+  cmd = "if [[ -f CMakeCache.txt ]]; then rm CMakeCache.txt; fi; mrb i --generator ninja",
   hidden = true,
   direction = 'float',
   dir = "$MRB_BUILDDIR",
