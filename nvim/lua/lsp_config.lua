@@ -39,7 +39,7 @@ require 'nvim-treesitter.configs'.setup {
     }
 }
 
-vim.g.diagnostics_active = true
+vim.g.diagnostics_active = false
 function _G.toggle_diagnostics()
   if vim.g.diagnostics_active then
     vim.g.diagnostics_active = false
