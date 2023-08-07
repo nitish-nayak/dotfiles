@@ -66,6 +66,9 @@ Plug 'mfussenegger/nvim-lint'
 " toggleterm
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
+" undo tree
+Plug 'mbbill/undotree'
+
 call plug#end()
 
 "*****************************************************************************
@@ -192,6 +195,7 @@ vnoremap <C-c> "+y
 
 "" vim-fugitive
 " set statusline+=%{fugitive#statusline()}
+noremap <Leader>gs :Git<CR>
 noremap <Leader>gll :Gpull<CR>
 noremap <Leader>gb :Git blame<CR>
 noremap <Leader>gd :Gvdiff<CR>
@@ -245,6 +249,9 @@ set foldlevelstart=10
 set foldnestmax=10
 "open/close folds
 nnoremap <S-f> za
+
+" undo tree
+nnoremap <leader>u :UndotreeToggle<CR>
 
 "*****************************************************************************
 "" Mappings
