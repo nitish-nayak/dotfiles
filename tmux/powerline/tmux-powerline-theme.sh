@@ -48,7 +48,6 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		# "now_playing 234 37" \
 		#"cpu 240 136" \
 		# "load 237 167" \
-                "tmux_gpu 24 255" \
                 "tmux_mem_cpu_load 234 136" \
                 # "tmux-mem-cpu-load --colors --interval 2 -m 2 -a 0 -g 5 234 136" \
 		# "battery 137 127" \
