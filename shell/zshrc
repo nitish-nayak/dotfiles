@@ -5,7 +5,7 @@ export ZSH=/nashome/b/bnayak/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME=""
-fpath+=($HOME/.zsh/pure)
+fpath+=(/nashome/b/bnayak/.zsh/pure)
 # ZSH_THEME="jispwoso"
 # ZSH_THEME="nitish_rr"
 
