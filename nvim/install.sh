@@ -48,7 +48,7 @@ function install_linux {
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
     # now install node
-    nvm install node
+    nvm install 16.15.1
     nvm use node
 
 }
