@@ -6,18 +6,21 @@ function install_tmuxutils {
         echo "Installing TPM"
         git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
         "$HOME"/.tmux/plugins/tpm/scripts/install_plugins.sh
-
-        echo "Configuring my tmux powerline"
-        TMUX_POWERLINE_PATH="$HOME"/.tmux/plugins/tmux-powerline/
-        dest="$TMUX_POWERLINE_PATH"themes/tmux-powerline-theme.sh
-        ln -s `pwd`/powerline/tmux-powerline-theme.sh "$dest"
-
-        for seg in `pwd`/powerline/tmux-powerline-segments/*; do
-            dest="$TMUX_POWERLINE_PATH"segments/`basename "$seg"`
-            ln -s "$seg" "$dest"
-        done
-
     fi
+
+    echo "Configuring my tmux powerline"
+    TMUX_POWERLINE_PATH="$HOME"/.tmux/plugins/tmux-powerline/
+    dest="$TMUX_POWERLINE_PATH"themes/tmux-powerline-theme.sh
+    if [ ! -f "$dest" ]; then
+        ln -s `pwd`/powerline/tmux-powerline-theme.sh "$dest"
+    fi
+
+    for seg in `pwd`/powerline/tmux-powerline-segments/*; do
+        dest="$TMUX_POWERLINE_PATH"segments/`basename "$seg"`
+        if [ ! -f "$dest" ]; then
+            ln -s "$seg" "$dest"
+        fi
+    done
 
 }
 
