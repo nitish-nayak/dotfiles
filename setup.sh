@@ -65,7 +65,7 @@ if [ ! -d "$olddir" ]; then
     mkdir -p "$olddir"
 fi
 
-if [ $(unmae) == "Darwin" ]; then
+if [ $(uname) == "Darwin" ]; then
     echo "Configuring requirements for OS X"
     init_macos
 fi
