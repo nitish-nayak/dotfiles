@@ -20,8 +20,10 @@ function setup_vim {
     ln -s `pwd`/vimrc "$HOME"/.vimrc
 
     install_vimutils
-    echo "Installing vim plugins"
-    vim +PluginInstall +qall
+    if command -v vim &> /dev/null; then
+        echo "Installing vim plugins"
+        vim +PluginInstall +qall
+    fi
 
 }
 

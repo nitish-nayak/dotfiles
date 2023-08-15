@@ -98,8 +98,10 @@ function setup_neovim {
     else
         exit 1
     fi
-    echo "installing neovim plugins"
-    nvim +PlugInstall +qall
+    if command -v nvim &> /dev/null; then
+        echo "installing neovim plugins"
+        nvim +PlugInstall +qall
+    fi
 
 }
 
