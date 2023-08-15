@@ -85,3 +85,19 @@ for co in $config_folders; do
     source install.sh
     cd $dir
 done
+
+function install_misc {
+    box "misc"
+    cd "misc"
+    source install.sh
+    cd $dir
+}
+
+while getopts 'p' name; do
+    case "${name}" in
+        p) echo "Installing some personal utilities"
+            install_misc ;;
+        *) box "Exiting!"
+            exit 0 ;;
+    esac
+done
