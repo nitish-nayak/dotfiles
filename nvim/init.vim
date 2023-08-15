@@ -211,6 +211,9 @@ nnoremap <leader>fg  <cmd>Telescope live_grep<cr>
 nnoremap <leader>ft  <cmd>Telescope grep_string search="" only_sort_text=true shorten_path=true<CR>
 nnoremap <leader>fb  <cmd>Telescope buffers<cr>
 nnoremap <leader>fo  <cmd>Telescope oldfiles<cr>
+" use telescope to check keymaps at any time
+" need to open a certain filetype to show keymaps for lsp
+nnoremap <leader>fk  <cmd>Telescope keymaps<cr>
 
 " " airline
 let g:airline#extensions#tabline#enabled = 1
