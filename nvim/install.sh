@@ -1,5 +1,21 @@
 #!/bin/bash
 
+function install_node {
+
+    echo "Installing nvm"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+    # run this first
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+    # now install node
+    nvm install node
+    nvm use node
+
+}
+
 function install_linux {
 
     # rg, fd, bat
@@ -39,18 +55,19 @@ function install_linux {
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --no-bash --completion --key-bindings --no-update-rc
 
-    echo "Installing nvm"
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    echo "Installing node"
+    install_node
 
-    # run this first
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
 
-    # now install node
-    nvm install node
-    nvm use node
+function install_macos {
 
+    echo "Installing fzf bat fd rg shellcheck"
+    brew install fzf bat fd rg shellcheck
+    "$(brew --prefix)/opt/fzf/install" --no-bash --completion --key-bindings --no-update-rc
+
+    echo "Installing node"
+    install_node
 }
 
 function setup_neovim {
@@ -74,7 +91,13 @@ function setup_neovim {
     done
 
     echo "installing neovim dependencies"
-    install_linux
+    if [ "$(uname)" == "Darwin" ]; then
+        install_macos
+    elif [ "$(uname)" == "Linux" ]; then
+        install_linux
+    else
+        exit 1
+    fi
     echo "installing neovim plugins"
     nvim +PlugInstall +qall
 

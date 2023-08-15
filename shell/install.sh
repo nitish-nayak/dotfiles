@@ -13,16 +13,16 @@ function install_zshutils {
         git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
         git clone https://github.com/laurenkt/zsh-vimto "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-vimto
         git clone https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
-
-        ## install zsh theme
-        if [ ! -d "$HOME/.zsh" ]; then
-            mkdir -p "$HOME/.zsh"
-        fi
-        git clone https://github.com/intelfx/pure.git "$HOME/.zsh/pure"
-
-        ln -s "$HOME/.zsh/pure/pure.zsh" "$HOME/.zsh/pure/prompt_pure_setup"
-        ln -s "$HOME/.zsh/pure/async.zsh" "$HOME/.zsh/pure/async"
     fi
+
+    ## install zsh theme
+    if [ ! -d "$HOME/.zsh" ]; then
+        mkdir -p "$HOME/.zsh"
+    fi
+    git clone https://github.com/intelfx/pure.git "$HOME/.zsh/pure"
+
+    ln -s "$HOME/.zsh/pure/pure.zsh" "$HOME/.zsh/pure/prompt_pure_setup"
+    ln -s "$HOME/.zsh/pure/async.zsh" "$HOME/.zsh/pure/async"
 }
 
 function setup_shell {
