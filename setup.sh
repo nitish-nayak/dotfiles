@@ -64,11 +64,17 @@ if [ ! -d "$olddir" ]; then
     mkdir -p "$olddir"
 fi
 
+if [ $(unmae) == "Darwin" ]; then
+    echo "Configuring requirements for OS X"
+    init_macos
+fi
+
 echo "Setting up my config for : "
 for co in $config_folders; do
     box "$co"
     cd $co
     if [ -f "pyrequirements.txt" ]; then
+        echo "Installing python requirements for $co first"
         pip install --user -r pyrequirements.txt
     fi
     source install.sh
