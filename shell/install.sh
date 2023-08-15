@@ -50,6 +50,10 @@ function setup_shell {
     echo "Setting up alt zsh theme"
     ln -s `pwd`/custom/nitish_rr.zsh-theme "$HOME"/.oh-my-zsh/themes/nitish_rr.zsh-theme
 
+    echo "Sourcing"
+    source "$HOME"/.zshrc
+    source "$HOME"/.bashrc
+
 }
 
 setup_shell
