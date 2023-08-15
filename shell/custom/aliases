@@ -1,13 +1,10 @@
 # Get readable output
-alias ls='ls --color=auto -GFhX'
-alias ll='ls --color=auto -lGFhX'
-alias la='ls --color=auto -aGFhX'
-alias lla='ls --color=auto -alGFhX'
-alias du='du -kHh'
-alias df='df -kHh'
-
-#tmux
-alias tmux='tmux -2'
+alias ls='gls --color=auto -GFhX'
+alias ll='gls --color=auto -lGFhX'
+alias la='gls --color=auto -aGFhX'
+alias lla='gls --color=auto -alGFhX'
+alias du='gdu -kHh'
+alias df='gdf -kHh'
 
 #Kerberos
 alias kinit='kinit -l 7d bnayak'
