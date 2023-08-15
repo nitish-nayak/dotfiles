@@ -18,10 +18,10 @@ Require :
 6. python
 7. neovim
 
-On an OSX host these are also installed automatically using homebrew. So just need :
+On an OSX host these are also installed automatically using homebrew. So just need to
 ```
-git clone https://github.com/nitish-nayak/dotfiles.git ~/dotfiles
-cd ~/dotfiles
 git checkout osx
-./setup.sh
 ```
+before running `./setup.sh`
+
+Run `./setup.sh -p` optionally to install personal apps including [visp](https://github.com/ambientsound/visp) (requires `go`)
