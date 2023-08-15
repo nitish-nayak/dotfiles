@@ -65,7 +65,7 @@ if [ ! -d "$olddir" ]; then
     mkdir -p "$olddir"
 fi
 
-if [ $(unmae) == "Darwin" ]; then
+if [ $(uname) == "Darwin" ]; then
     echo "Configuring requirements for OS X"
     init_macos
 fi
@@ -84,4 +84,20 @@ for co in $config_folders; do
     fi
     source install.sh
     cd $dir
+done
+
+function install_misc {
+    box "misc"
+    cd "misc"
+    source install.sh
+    cd $dir
+}
+
+while getopts 'p' name; do
+    case "${name}" in
+        p) echo "Installing some personal utilities"
+            install_misc ;;
+        *) box "Exiting!"
+            exit 0 ;;
+    esac
 done
