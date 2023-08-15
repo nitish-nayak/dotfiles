@@ -23,6 +23,7 @@ function init_macos {
 
     # install some utilities
     brew install coreutils
+    brew install htop
 
     # install python
     echo "Installing python"
