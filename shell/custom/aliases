@@ -6,8 +6,8 @@ alias lla='ls --color=auto -alGFhX'
 alias du='du -kHh'
 alias df='df -kHh'
 
-#tmux
-alias tmux='tmux -2'
+# #tmux
+# alias tmux='tmux -2'
 
 #Kerberos
 alias kinit='kinit -l 7d bnayak'
