@@ -50,7 +50,6 @@ function init_macos {
     # install tmux
     echo "Installing tmux"
     brew install tmux
-
 }
 
 # Make box around text @climagic
@@ -60,8 +59,8 @@ dir=`pwd`
 olddir="$HOME/".backup
 config_folders="shell vim tmux nvim"
 
-echo "Creating backup folder"
 if [ ! -d "$olddir" ]; then
+    echo "Creating backup folder"
     mkdir -p "$olddir"
 fi
 
@@ -69,6 +68,15 @@ if [ $(uname) == "Darwin" ]; then
     echo "Configuring requirements for OS X"
     init_macos
 fi
+
+while getopts 'p' name; do
+    case "${name}" in
+        p) echo "Installing some personal utilities"
+            config_folders="misc" ;;
+        *) echo "Exiting!"
+            exit 1 ;;
+    esac
+done
 
 echo "Setting up my config for : "
 for co in $config_folders; do
@@ -84,20 +92,4 @@ for co in $config_folders; do
     fi
     source install.sh
     cd $dir
-done
-
-function install_misc {
-    box "misc"
-    cd "misc"
-    source install.sh
-    cd $dir
-}
-
-while getopts 'p' name; do
-    case "${name}" in
-        p) echo "Installing some personal utilities"
-            install_misc ;;
-        *) box "Exiting!"
-            exit 0 ;;
-    esac
 done
