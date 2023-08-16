@@ -62,6 +62,8 @@ function _htop_toggle()
   htop:toggle()
 end
 
+vim.api.nvim_set_keymap("n", "<leader>1", "<cmd>lua _htop_toggle()<CR>", {noremap = true, silent = true})
+
 local visp = Terminal:new({
   cmd = "visp",
   hidden = true,
