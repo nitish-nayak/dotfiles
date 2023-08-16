@@ -1,7 +1,7 @@
 Run setup.sh to backup old config and symlink relevant dotfiles in the home directory
 ```
- git clone https://github.com/nitish-nayak/dotfiles.git ~/dotfiles
- cd ~/dotfiles
+git clone https://github.com/nitish-nayak/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ./setup.sh
 ```
 
