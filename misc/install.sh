@@ -17,7 +17,6 @@ function install_macos {
     fi
     git dropbox login
     git clone dropbox:///personal/repos/resume.git "$HOME/.documents/resume"
-    git clone dropbox:///personal/repos/scholarships.git "$HOME/.documents/scholarships"
 }
 
 function setup_visp {
