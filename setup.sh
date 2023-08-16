@@ -89,6 +89,14 @@ done
 function install_misc {
     box "misc"
     cd "misc"
+    if [ -f "pyrequirements.txt" ]; then
+        echo "Installing python requirements for $co first"
+        if command -v pip &> /dev/null; then
+            pip install --user -r pyrequirements.txt
+        else
+            echo "pip not found! need it to install python modules in "$co"/pyrequirements.txt"
+        fi
+    fi
     source install.sh
     cd $dir
 }

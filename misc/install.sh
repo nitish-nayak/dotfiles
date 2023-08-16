@@ -9,6 +9,15 @@ function install_macos {
     brew install --cask slack
     brew install --cask spotify
     brew install go
+
+    echo "setting up my docs with dropbox"
+    brew install --cask dropbox
+    if [ ! -d "$HOME/.documents" ]; then
+        mkdir -p "$HOME/.documents"
+    fi
+    git dropbox login
+    git clone dropbox:///personal/repos/resume.git "$HOME/.documents/resume"
+    git clone dropbox:///personal/repos/scholarships.git "$HOME/.documents/scholarships"
 }
 
 function setup_visp {
