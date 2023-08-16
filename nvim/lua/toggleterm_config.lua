@@ -63,3 +63,17 @@ function _htop_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>1", "<cmd>lua _htop_toggle()<CR>", {noremap = true, silent = true})
+
+local visp = Terminal:new({
+  cmd = "visp",
+  hidden = true,
+  direction = 'float',
+  dir = '~',
+  close_on_exit = true, -- close the terminal window when the process exits
+})
+
+function _visp_toggle()
+  visp:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>2", "<cmd>lua _visp_toggle()<CR>", {noremap = true, silent = true})
