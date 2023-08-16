@@ -30,8 +30,10 @@ function init_macos {
     brew install pyenv
     brew install zlib
 
+    curl https://pyenv.run | bash
     export PYENV_ROOT=$HOME/.pyenv
     export PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
+
     eval "$(pyenv init --path)"
     pyenv install 3.10.4
     pyenv global 3.10.4
