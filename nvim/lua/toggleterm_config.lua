@@ -71,6 +71,10 @@ local make = Terminal:new({
   direction = 'float',
   dir = "$MRB_BUILDDIR",
   close_on_exit = false, -- close the terminal window when the process exits
+  -- function to run on closing the terminal
+  on_close = function(term)
+    vim.cmd.normal("bd")  -- delete the buffer entirely
+  end
 })
 
 function _make_toggle()
@@ -85,6 +89,10 @@ local mrb = Terminal:new({
   direction = 'float',
   dir = "$MRB_BUILDDIR",
   close_on_exit = false, -- close the terminal window when the process exits
+  -- function to run on closing the terminal
+  on_close = function(term)
+    vim.cmd.normal("bd")  -- delete the buffer entirely
+  end
 })
 
 function _mrb_toggle()
