@@ -27,7 +27,8 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 		"hostname 33 0" \
 		#"ifstat 30 255" \
 		#"ifstat_sys 30 255" \
-                "lan_ip 24 255" \
+                # "lan_ip 24 255" \
+								"tmux_mem_cpu_load 234 136" \
                 "disk_usage 26 255" \
                 "tmux_ps_mem 24 255" \
 		# "wan_ip 24 255" \
@@ -48,8 +49,7 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		# "now_playing 234 37" \
 		#"cpu 240 136" \
 		# "load 237 167" \
-                "tmux_gpu 24 255" \
-                "tmux_mem_cpu_load 234 136" \
+								"tmux_gpu 24 255" \
                 # "tmux-mem-cpu-load --colors --interval 2 -m 2 -a 0 -g 5 234 136" \
 		# "battery 137 127" \
 		# "weather 37 255" \

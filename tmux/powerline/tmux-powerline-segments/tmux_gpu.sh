@@ -29,7 +29,7 @@ run_segment() {
 	mem=$(echo "100*$used_mem/$tot_mem" | bc | sed -e 's/ %//g')
 	temp=$(nvidia-smi -q -d "TEMPERATURE" | grep 'GPU Current Temp' | sed -e 's/.*: \([0-9].*C\)/\1/g')
 
-	stats="GPU : Util "`bar "$gpu" 10`", Mem "`bar "$mem" 10`", Temp "$temp
+	stats="GPU : Util "`bar "$gpu" 5`", Mem "`bar "$mem" 5`", Temp "$temp
 	if [ -n "$stats" ]; then
 		echo -e "$stats";
 	fi
