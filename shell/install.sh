@@ -23,6 +23,9 @@ function install_zshutils {
 
     ln -s "$HOME/.zsh/pure/pure.zsh" "$HOME/.zsh/pure/prompt_pure_setup"
     ln -s "$HOME/.zsh/pure/async.zsh" "$HOME/.zsh/pure/async"
+
+    # install other cool stuff
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 }
 
 function setup_shell {
