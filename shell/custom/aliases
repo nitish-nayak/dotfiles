@@ -1,8 +1,8 @@
 # Get readable output
-alias ls='ls --color=auto -GFhX'
-alias ll='ls --color=auto -lGFhX'
-alias la='ls --color=auto -aGFhX'
-alias lla='ls --color=auto -alGFhX'
+alias ls='ls --color=auto -GFh'
+alias ll='ls --color=auto -lGFh'
+alias la='ls --color=auto -aGFh'
+alias lla='ls --color=auto -alGFh'
 alias du='du -kHh'
 alias df='df -kHh'
 
