@@ -51,6 +51,8 @@ if [ -f ~/.fzf.zsh ]; then
     . ~/.fzf.zsh
 fi
 
+eval "$(zoxide init zsh)"
+
 PURE_GIT_FETCH=0
 PURE_PROMPT_SYMBOL='❯'
 

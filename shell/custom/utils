@@ -47,3 +47,7 @@ export FZF_CTRL_R_OPTS="
 
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+
+gbatdiff() {
+    git diff --name-only --relative $1 | xargs bat --diff
+}
