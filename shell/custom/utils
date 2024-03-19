@@ -50,3 +50,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
 export PATH="$HOME"/phys_utils:"$HOME"/phys_utils/fermilab:"$HOME"/phys_utils/bnl:"$HOME"/.local/bin:$PATH
 source /opt/root/bin/thisroot.sh
+
+gbatdiff() {
+    git diff --name-only --relative $1 | xargs bat --diff
+}

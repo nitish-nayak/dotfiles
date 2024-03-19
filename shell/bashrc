@@ -7,3 +7,5 @@ fi
 if [ -f ~/.utils ]; then
     . ~/.utils
 fi
+
+eval "$(zoxide init bash)"
