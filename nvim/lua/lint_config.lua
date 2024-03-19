@@ -1,7 +1,7 @@
 local lint = require 'lint'
 
 lint.linters_by_ft = {
-  python = {'pylint'},
+  -- python = {'pylint'},
   sh = {'shellcheck'}
 }
 
@@ -15,5 +15,5 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()
     -- vim.diagnostic.enable()
     lint.try_lint()
-  end,
+  end
 })
