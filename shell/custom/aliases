@@ -1,8 +1,8 @@
 # Get readable output
-alias ls='ls --color=auto -GFhX'
-alias ll='ls --color=auto -lGFhX'
-alias la='ls --color=auto -aGFhX'
-alias lla='ls --color=auto -alGFhX'
+alias ls='ls --color=auto -GFhX --group-directories-first'
+alias ll='ls --color=auto -lGFhX --group-directories-first'
+alias la='ls --color=auto -aGFhX --group-directories-first'
+alias lla='ls --color=auto -alGFhX --group-directories-first'
 alias du='du -kHh'
 alias df='df -kHh'
 
