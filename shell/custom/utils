@@ -48,8 +48,14 @@ export FZF_CTRL_R_OPTS="
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
+# my stuff
 export PATH="$HOME"/phys_utils:"$HOME"/phys_utils/fermilab:"$HOME"/phys_utils/bnl:"$HOME"/.local/bin:$PATH
+source "$HOME"/phys_utils/bnl/functions.zsh
+
+export PATH="/opt/root/bin:"$HOME"/uboone/wcp-uboone-bdt/bin:"$HOME:"/.cargo/bin:"$PATH
 source /opt/root/bin/thisroot.sh
+
+. "$HOME/.cargo/env"
 
 gbatdiff() {
     git diff --name-only --relative $1 | xargs bat --diff
