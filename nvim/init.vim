@@ -63,6 +63,9 @@ Plug 'williamboman/mason-lspconfig.nvim'
 " use with pylint, shellcheck, (maybe cppcheck)
 Plug 'mfussenegger/nvim-lint'
 
+" zen mode
+Plug 'folke/zen-mode.nvim'
+
 " toggleterm
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
