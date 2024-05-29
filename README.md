@@ -9,16 +9,9 @@ cd ~/dotfiles
 Any required python modules are given in `pyrequirements.txt` for each folder.
 `setup.sh` will also install them using `pip`
 
-Require :
-1. zsh
-2. git
-3. tmux
-4. curl
-5. vim
-6. python
-7. neovim
+Require : `zsh`, `git`, `tmux`, `curl`, `vim`, `python`, `neovim`
 
-On an OSX host these are also installed automatically using homebrew. So just need to
+On an OSX host these are all installed automatically using homebrew. So just need to
 ```
 git checkout osx
 ```
