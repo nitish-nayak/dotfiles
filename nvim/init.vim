@@ -281,6 +281,8 @@ noremap :z :ZenMode <CR>
 " indent
 autocmd FileType python,html,javascript,javascript.jsx setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType c,cpp,scala,java,ruby setlocal tabstop=2 shiftwidth=2 expandtab
+" detect C files as cpp
+autocmd BufNewFile,BufRead *.C setfiletype cpp
 
 "*****************************************************************************
 " lua
