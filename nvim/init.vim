@@ -63,6 +63,9 @@ Plug 'williamboman/mason-lspconfig.nvim'
 " use with pylint, shellcheck, (maybe cppcheck)
 Plug 'mfussenegger/nvim-lint'
 
+" zen mode
+Plug 'folke/zen-mode.nvim'
+
 " toggleterm
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
@@ -268,6 +271,8 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+"" Zen mode
+noremap :z :ZenMode <CR>
 
 "*****************************************************************************
 "" Language configs
