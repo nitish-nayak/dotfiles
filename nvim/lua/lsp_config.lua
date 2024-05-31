@@ -74,7 +74,7 @@ end
 
 require("mason").setup()
 require("mason-lspconfig").setup{
-  ensure_installed = { "pyright", "lua_ls", "bashls"},
+  ensure_installed = { "pyright", "clangd", "lua_ls", "bashls"},
 }
 
 -- new lsp servers get default on_attach and capabilities but can be configured differently
