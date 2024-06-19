@@ -5,6 +5,7 @@ function install_tmuxutils {
     if [ ! -d "$HOME/.tmux" ]; then
         echo "Installing TPM"
         git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
+        export TMUX_PLUGIN_MANAGER_PATH="$HOME"/.tmux/plugins
         # start a server but don't attach to it
         tmux start-server
         # create a new session but don't attach to it either
