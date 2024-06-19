@@ -14,8 +14,8 @@ function init_brew {
     if [ $(uname) == "Darwin" ]; then
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     elif [[ -n `uname -a | grep 'Ubuntu'` ]]; then
-        sudo apt update
-        sudo apt-get install build-essential procps curl file git \
+        apt update
+        apt-get install build-essential procps curl file git \
           libbz2-dev \
           libffi-dev \
           liblzma-dev \
