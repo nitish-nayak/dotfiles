@@ -31,6 +31,8 @@ function init_brew {
           wget \
           xz-utils \
           zlib1g-dev
+        apt-get install locales
+        locale-gen en_US.UTF-8
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
         test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
