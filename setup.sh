@@ -9,7 +9,22 @@
 # python
 # neovim
 
-function init_macos {
+function init_brew {
+
+    if [ $(uname) == "Darwin" ]; then
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    elif [[ -n `uname -a | grep 'Ubuntu'` ]]; then
+        sudo apt-get install build-essential procps curl file git
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+        test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+        test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+    fi
+
+}
+
+function init_pre {
 
     # get homebrew first
     if command -v brew &> /dev/null
@@ -18,7 +33,7 @@ function init_macos {
         brew update
     else
         echo "Installing Homebrew"
-        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        init_brew
     fi
 
     # install some utilities
@@ -66,9 +81,11 @@ if [ ! -d "$olddir" ]; then
     mkdir -p "$olddir"
 fi
 
-if [ $(uname) == "Darwin" ]; then
-    echo "Configuring requirements for OS X"
-    init_macos
+echo "Configuring requirements for machine"
+if [[ "$(uname)" == "Darwin" || -n `uname -a | grep 'Ubuntu'` ]]; then
+    init_pre
+elif [ "$(uname)" == "Linux" ]; then
+    echo "Not installing homebrew. But continuing assuming the pre-reqs are installed"
 fi
 
 while getopts 'p' name; do

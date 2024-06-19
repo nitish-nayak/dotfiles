@@ -60,7 +60,7 @@ function install_linux {
 
 }
 
-function install_macos {
+function install_pre {
 
     echo "Installing fzf bat fd rg shellcheck"
     brew install fzf bat fd rg shellcheck
@@ -91,8 +91,8 @@ function setup_neovim {
     done
 
     echo "installing neovim dependencies"
-    if [ "$(uname)" == "Darwin" ]; then
-        install_macos
+    if [[ "$(uname)" == "Darwin" || -n `uname -a | grep 'Ubuntu'` ]]; then
+        install_pre
     elif [ "$(uname)" == "Linux" ]; then
         install_linux
     else
