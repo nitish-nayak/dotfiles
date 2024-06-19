@@ -14,7 +14,23 @@ function init_brew {
     if [ $(uname) == "Darwin" ]; then
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     elif [[ -n `uname -a | grep 'Ubuntu'` ]]; then
-        sudo apt-get install build-essential procps curl file git
+        sudo apt update
+        sudo apt-get install build-essential procps curl file git \
+          libbz2-dev \
+          libffi-dev \
+          liblzma-dev \
+          libncursesw5-dev \
+          libreadline-dev \
+          libsqlite3-dev \
+          libssl-dev \
+          libxml2-dev \
+          libxmlsec1-dev \
+          llvm \
+          make \
+          tk-dev \
+          wget \
+          xz-utils \
+          zlib1g-dev
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
         test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
