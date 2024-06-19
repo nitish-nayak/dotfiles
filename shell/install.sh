@@ -6,8 +6,7 @@ function install_zshutils {
 
         # install oh-my-zsh
         echo "Installing Oh-My-ZSH"
-        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --skip-chsh --keep-zshrc
         ## install oh-my-zsh plugins
         echo "Installing some of my favorite oh-my-zsh plugins.."
         git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
