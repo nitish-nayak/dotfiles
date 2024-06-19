@@ -10,9 +10,9 @@ function install_zshutils {
 
         ## install oh-my-zsh plugins
         echo "Installing some of my favorite oh-my-zsh plugins.."
-        git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
-        git clone https://github.com/laurenkt/zsh-vimto "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-vimto
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+        git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM}"/plugins/zsh-autosuggestions
+        git clone https://github.com/laurenkt/zsh-vimto "${ZSH_CUSTOM}"/plugins/zsh-vimto
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_CUSTOM}"/plugins/zsh-syntax-highlighting
     fi
 
     ## install zsh theme
