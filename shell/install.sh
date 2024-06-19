@@ -6,7 +6,7 @@ function install_zshutils {
 
         # install oh-my-zsh
         echo "Installing Oh-My-ZSH"
-        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed '/\s*env\s\s*zsh\s*/d')"
 
         ## install oh-my-zsh plugins
         echo "Installing some of my favorite oh-my-zsh plugins.."
@@ -54,7 +54,6 @@ function setup_shell {
     ln -s `pwd`/custom/nitish_rr.zsh-theme "$HOME"/.oh-my-zsh/themes/nitish_rr.zsh-theme
 
     echo "Sourcing"
-    source "$HOME"/.zshrc
     source "$HOME"/.bashrc
 
 }
