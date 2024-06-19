@@ -53,6 +53,7 @@ fi
 
 eval "$(zoxide init zsh)"
 
+PURE_ALWAYS_SHOW_USER=1
 PURE_GIT_FETCH=0
 PURE_PROMPT_SYMBOL='❯'
 
