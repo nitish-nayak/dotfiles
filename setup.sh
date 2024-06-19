@@ -55,6 +55,10 @@ function init_pre {
     # install some utilities
     brew install coreutils
     brew install htop
+    
+    # install zsh
+    echo "Installing zsh"
+    brew install zsh
 
     # install python
     echo "Installing python"
