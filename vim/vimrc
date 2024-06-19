@@ -19,19 +19,15 @@ call vundle#begin('$HOME/.vim/bundle')
 "Vundle - required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'benmills/vimux'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline' "keep
-" Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab' "keep
-" Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter' "keep
 Plugin 'tpope/vim-fugitive' "keep
 Plugin 'scrooloose/nerdtree'
 Plugin 'FelikZ/ctrlp-py-matcher'
-" Plugin 'tpope/vim-dispatch'
 
 "All of your Plugins must be added before the following line
 call vundle#end()           
