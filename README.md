@@ -11,10 +11,6 @@ Any required python modules are given in `pyrequirements.txt` for each folder.
 
 Require : `zsh`, `git`, `tmux`, `curl`, `vim`, `python`, `neovim`
 
-On an OSX host these are all installed automatically using homebrew. So just need to
-```
-git checkout osx
-```
-before running `./setup.sh`
+On an OSX/Ubuntu host these are all installed automatically using homebrew. So just need to run `./setup.sh`
 
 Run `./setup.sh -p` optionally to install personal apps including [visp](https://github.com/ambientsound/visp) (requires `go`)
