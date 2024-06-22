@@ -17,9 +17,9 @@ export LC_ALL="en_US.UTF-8"
 export EDITOR='nvim'
 
 # node nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # fzf
 if command -v bat &> /dev/null
@@ -45,7 +45,7 @@ export FZF_CTRL_R_OPTS="
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
-export PATH="$HOME"/phys_utils:"$HOME"/phys_utils/fermilab:"$HOME"/phys_utils/bnl:"$HOME"/.local/bin:$PATH
+export PATH="$HOME"/phys_utils:"$HOME"/phys_utils/fermilab:"$HOME"/phys_utils/bnl:"$HOME"/local/bin:"$HOME"/.local/bin:$PATH
 source /nashome/b/bnayak/phys_utils/fermilab/functions.sh
 
 # Print tree structure in the preview window
