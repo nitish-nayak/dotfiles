@@ -72,6 +72,8 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 " undo tree
 Plug 'mbbill/undotree'
 
+" vim motions
+Plug 'folke/flash.nvim'
 call plug#end()
 
 "*****************************************************************************
@@ -166,10 +168,10 @@ nnoremap j gj
 nnoremap k gk
 
 "move to beginning/end of line/script
-nnoremap A ^
-nnoremap D $
-nnoremap W gg
-nnoremap S GG
+noremap A ^
+noremap D $
+noremap W gg
+noremap S GG
 nnoremap ^ <nop>
 nnoremap $ <nop>
 nnoremap ] %
@@ -293,3 +295,4 @@ lua require('cmp_config')
 lua require('lsp_config')
 lua require('lint_config')
 lua require('toggleterm_config')
+lua require('flash_config')
