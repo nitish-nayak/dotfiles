@@ -5,6 +5,11 @@ flash.setup({
     char = {
       jump_labels = true
     },
+  },
+  label = {
+    rainbow = {
+      enabled = true
+    },
   }
 })
 -- -- Mappings.
