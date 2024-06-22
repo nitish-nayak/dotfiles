@@ -14,43 +14,24 @@ set nocompatible
 filetype off
 set rtp+=/nashome/b/bnayak/.vim/bundle/Vundle.vim
 set rtp+=/nashome/b/bnayak/.vim
-"set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 call vundle#begin('/nashome/b/bnayak/.vim/bundle')
 
 "Vundle - required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'benmills/vimux'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline' "keep
-" Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab' "keep
-" Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter' "keep
 Plugin 'tpope/vim-fugitive' "keep
-Plugin 'scrooloose/nerdtree'
 Plugin 'FelikZ/ctrlp-py-matcher'
-" Plugin 'tpope/vim-dispatch'
 
 "All of your Plugins must be added before the following line
-call vundle#end()           
-filetype plugin indent on  
-"To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-"Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"-------
+call vundle#end()
+filetype plugin indent on
 
-"Misc
-"-------
-cmap w!! w !sudo tee > /dev/null %
-"-------
 
 "Colors
 "-------
@@ -58,19 +39,46 @@ syntax on
 colorscheme badwolf
 "-------
 
-"Spaces
-"-------
-" set tabstop=4
-set expandtab
+"*****************************************************************************
+"" Basic Setup
+"*****************************************************************************"
+"" Tabs. May be overriten by autocmd rules
+set tabstop=2
+set softtabstop=0
 set shiftwidth=2
-set softtabstop=2
-"-------
+set expandtab
 
-"UI
-"-------
-"show line numbers
+"" Map leader to ,
+let mapleader=','
+
+"" Searching
+set ignorecase
+set smartcase
+set incsearch
+"highlight matches
+set hlsearch
+"Ignore case
+set ignorecase
+"turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+"" Directories for swp files
+set noswapfile
+
+"*****************************************************************************
+"" Visual Settings
+"*****************************************************************************
+"Toggle showing line numbers
+nmap ~ :set number! number?<cr>
+
+" set colorscheme
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" show linenos
 set number
-"highlight current line
+" highlight current line
 set cursorline
 "show command in bottom bar
 set showcmd
@@ -80,55 +88,60 @@ filetype indent on
 set showmatch
 "visual autocomplete
 set wildmenu
-"-------
 
-"Search
-"-------
-"search as characters are entered
-set incsearch
-"highlight matches
-set hlsearch
-"Ignore case
-set ignorecase
-"turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-"ignore files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
-"-------
+"*****************************************************************************
+"" Miscellaneous
+"*****************************************************************************
 
-"Folding
-"-------
-"enable folding
-set foldenable
-"open most folds by default. 0-none, 99-all
-set foldlevelstart=10
-"max nested folds
-set foldnestmax=10
-"open/close folds
-nnoremap <space> za
-"fold on indent : python
-set foldmethod=indent
-"-------
+" forgot to sudo in
+cmap w!! w !sudo tee > /dev/null %
 
-"Movement
-"-------
+" wildmode
+set wildmenu
+set wildmode=longest:full
+set wildignore+=*.a,*.o,*.hi
+set wildignore+=*.pdf,*.gz,*.aux,*.out,*.nav,*.snm,*.vrb
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+
+"*****************************************************************************
+"" Abbreviations
+"*****************************************************************************
+
+"" no one is really happy until you have these shortcuts
+cnoreabbrev E e
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+"*****************************************************************************
+"" Movement
+"*****************************************************************************
+
 "move by visual line
 nnoremap j gj
 nnoremap k gk
+
 "move to beginning/end of line/script
-nnoremap A ^
-nnoremap D $
-nnoremap W gg
-nnoremap S GG
+noremap A ^
+noremap D $
+noremap W gg
+noremap S GG
 nnoremap ^ <nop>
 nnoremap $ <nop>
 nnoremap ] %
-"leader
-let mapleader=","
+
 "buffer switching
 map <leader>] :bn<CR>
 map <leader>[ :bp<CR>
 map <leader>d :bd<CR>
+
 "window management
 map <leader>v <C-w>v
 map <leader>s <C-w>s
@@ -137,13 +150,34 @@ map <leader>j <C-w>j
 map <leader>k <C-w>k
 map <leader>l <C-w>l
 
+"disable mouse
+set mouse=
 "copy to clipboard
-map <C-c> "*y<CR>
+vnoremap <C-c> "+y
 
-"regexp search - permanent
-cnoremap s/ s/\v
-"-------
+"*****************************************************************************
+"" Mappings
+"*****************************************************************************
+"" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
 
+"" Opens an edit command with the path of the currently edited file filled in
+noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+"" Opens a tab edit command with the path of the currently edited file filled
+noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+"*****************************************************************************
+"" Language configs
+"*****************************************************************************
+
+" indent
+autocmd FileType python,html,javascript,javascript.jsx setlocal tabstop=4 shiftwidth=4 expandtab
+autocmd FileType c,cpp,scala,java,ruby setlocal tabstop=2 shiftwidth=2 expandtab
+
+"*****************************************************************************
+"" Plugins
+"*****************************************************************************
 "Comments
 "-------
 let g:NERDSpaceDelims=1
@@ -151,7 +185,6 @@ let g:NERDDefaultAlign='left'
 let g:NERDTrimTrailingWhitespace=1
 let g:NERDCommentEmptyLines=1
 "-------
-
 
 nnoremap <leader>u :GundoToggle<CR>
 "save session
@@ -169,38 +202,15 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 "-------
 let g:airline#extensions#tabline#enabled = 1
 
-"Vimux
-"-------
-" map <leader>vp :VimuxPromptCommand<CR>
-" map <Leader>vl :VimuxRunLastCommand<CR>
-
-"Jedi-Vim
-"-------
-" let g:jedi#use_splits_not_buffers = "bottom"
-
-"Syntastic
-"-------
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-"
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-"
-" let g:syntastic_python_checkers = ['pylint']
-"
-" map <leader>n :lnext<CR>
-" map <leader>N :lprevious<CR>
-
 "Fugitive
 "-------
 set statusline+=%{fugitive#statusline()}
-
-"NerdTree
-"-------
-map <C-n> :NERDTreeToggle<CR>
+noremap <Leader>gs :Git<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gb :Git blame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gh :.GBrowse<CR>
+vnoremap <Leader>gh :.GBrowse<CR>
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -209,15 +219,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" " unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.linenr = ' ln '
-" let g:airline_symbols.colnr = ' cn '
-"
 " airline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
