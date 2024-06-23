@@ -108,11 +108,6 @@ set noswapfile
 "Toggle showing line numbers
 nmap ~ :set number! number?<cr>
 
-" set colorscheme
-if (has("termguicolors"))
- set termguicolors
-endif
-
 colorscheme OceanicNext
 
 " show linenos
