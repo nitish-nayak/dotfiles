@@ -54,7 +54,7 @@ require('telescope').setup {
 
 local fcldirs = {}
 local fclenv = os.getenv("FHICL_FILE_PATH")
-if not (fclenv == 'nil' or fclenv == '') then
+if not (fclenv == nil or fclenv == '') then
   for d in string.gmatch(fclenv, "[^:]+") do
     table.insert(fcldirs, d)
   end
