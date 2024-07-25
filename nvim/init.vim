@@ -278,8 +278,6 @@ noremap :z :ZenMode <CR>
 " indent
 autocmd FileType python,html,javascript,javascript.jsx setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType c,cpp,scala,java,ruby setlocal tabstop=2 shiftwidth=2 expandtab
-" detect C files as cpp
-autocmd BufNewFile,BufRead *.C setfiletype cpp
 " detect fcl files as json (temporarily until I finish writing a treesitter
 " parser)
 autocmd BufNewFile,BufRead *.fcl setfiletype yaml
@@ -293,3 +291,4 @@ lua require('lsp_config')
 lua require('lint_config')
 lua require('toggleterm_config')
 lua require('flash_config')
+lua require('root_config')
