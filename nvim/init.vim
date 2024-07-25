@@ -288,5 +288,6 @@ lua require('lsp_config')
 lua require('lint_config')
 lua require('toggleterm_config')
 lua require('flash_config')
+lua require('root_config')
 
 let g:python3_host_prog='$PYENV_ROOT/shims/python'
