@@ -30,27 +30,21 @@ cmp.setup({
     ['<C-k>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-u>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-y>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-n>']  = cmp.mapping.select_next_item { behavior = 'insert' },
+    ['<C-p>']  = cmp.mapping.select_prev_item { behavior = 'insert' },
 
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif vim.fn["vsnip#available"]() == 1 then
+    ['<C-k>'] = cmp.mapping(function ()
+      if vim.fn["vsnip#available"]() == 1 then
         feedkey("<Plug>(vsnip-expand-or-jump)", "")
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
       end
     end, {"i", "s"}),
 
-    ["<S-Tab>"] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+    ['<C-j>'] = cmp.mapping(function ()
+      if vim.fn["vsnip#jumpable"](-1) == 1 then
         feedkey("<Plug>(vsnip-jump-prev)", "")
       end
-    end, {"i", "s"})
+    end, {"i", "s"}),
 
   }),
   sources = cmp.config.sources({
