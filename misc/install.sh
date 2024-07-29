@@ -8,6 +8,7 @@ function install_macos {
     brew install --cask discord
     brew install --cask slack
     brew install --cask spotify
+    brew install --cask amethyst
     brew install go
 
     echo "setting up my docs with dropbox"
