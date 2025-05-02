@@ -74,6 +74,13 @@ Plug 'mbbill/undotree'
 
 " vim motions
 Plug 'folke/flash.nvim'
+
+" ai stuff
+Plug 'nekowasabi/aider.vim'
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddu.vim'
+Plug 'Shougo/ddu-ui-filer'
+
 call plug#end()
 
 "*****************************************************************************
@@ -292,5 +299,70 @@ lua require('lint_config')
 lua require('toggleterm_config')
 lua require('flash_config')
 lua require('root_config')
+
+" ddu settings
+" set the ui but use our own defined function to add visual block to aider
+" the approach recommended by plugin using ddu filters seems not to work
+call ddu#custom#patch_global({
+    \ 'ui': 'filer',
+    \ 'sources': [{'name': 'aider'}],
+    \ })
+
+nnoremap <silent> <Leader>ad
+      \ <Cmd>call ddu#start({'sources': [{'name': 'aider'}]})<CR>
+
+" https://github.com/nekowasabi/dotfiles/blob/37f0ab3f256b73206083ddd2ddcc6ca2a1a94ebe/vim_integrate/rc/plugins/aider.vim
+function! s:get_visual_text()
+  try
+    " ビジュアルモードの選択開始/終了位置を取得
+    let pos = getpos('')
+    normal `<
+    let start_line = line('.')
+    let start_col = col('.')
+    normal `>
+    let end_line = line('.')
+    let end_col = col('.')
+    call setpos('.', pos)
+
+    let tmp = @@
+    silent normal gvy
+    let selected = @@
+    let @@ = tmp
+    return selected
+  catch
+    return ''
+  endtry
+endfunction
+
+function! s:AiderAddFileVisualSelected()
+    " 選択範囲のテキストを取得
+    let l:text = s:get_visual_text()
+    if empty(l:text)
+      let l:lines = [getline('.')]
+    else
+      let l:lines = []
+      for line in split(l:text, '\n')
+          call add(l:lines, "\t" . line)
+      endfor
+    endif
+
+    let l:lines = map(l:lines, 'substitute(v:val, "[, ]*$", "", "g")')
+    let l:lines = map(l:lines, 'substitute(v:val, "^[ ]*", "", "g")')
+
+    " 各行からファイルパスを抽出
+    for l:line in l:lines
+      let l:path_pattern = '[~/]\?[a-zA-Z0-9_/.-]\+'
+      let l:matched_path = matchstr(l:line, l:path_pattern)
+
+      if !empty(l:matched_path)
+        execute "AiderAddFile " . l:matched_path
+      endif
+    endfor
+endfunction
+
+command! -range -nargs=0 AiderAddFileVisualSelected call s:AiderAddFileVisualSelected()
+" load it here
+lua require('aider_config')
+
 
 let g:python3_host_prog='/home/nitish/dune_cvn/cvn_venv/bin/python'
