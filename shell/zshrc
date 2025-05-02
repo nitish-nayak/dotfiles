@@ -64,4 +64,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 # deno
-. "/home/nitish/.deno/env"
+. "$HOME/.deno/env"
