@@ -26,6 +26,9 @@ function install_zshutils {
     # install other cool stuff
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
     curl -fsSL https://deno.land/install.sh | sh
+    # aider
+    python -m pip install aider-install
+    aider-install
 }
 
 function setup_shell {
