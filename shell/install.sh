@@ -25,6 +25,7 @@ function install_zshutils {
 
     # install other cool stuff
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    curl -fsSL https://deno.land/install.sh | sh
 }
 
 function setup_shell {

@@ -58,3 +58,12 @@ PURE_PROMPT_SYMBOL='❯'
 
 autoload -U promptinit; promptinit
 prompt pure
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+pyenv global 3.11
+
+# deno
+. "/home/nitish/.deno/env"
