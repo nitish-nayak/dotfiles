@@ -1,4 +1,4 @@
-  vim.g.aider_command = 'aider --no-auto-commits'
+  vim.g.aider_command = 'aider --no-auto-commits --watch-files --cache-prompts'
   vim.g.aider_buffer_open_type = 'floating'
   vim.g.aider_floatwin_width = 150
   vim.g.aider_floatwin_height = 50
