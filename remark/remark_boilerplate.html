@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Presentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <link rel="stylesheet" href="remark_styles.css">
+   <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Droid+Serif:400,700,400italic|Ubuntu+Mono:400,700,400italic" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="toolbar">
+      <input type="text" id="imgUrl" placeholder="Image URL" />
+      <button onclick="addImage()">Add Image</button>
+      <button onclick="saveLayout()">Save Layout</button>
+      <button onclick="loadLayout()">Load Layout</button>
+      <button onclick="deleteSelected()">Delete Selected</button>
+      <button onclick="downloadHTML()">Download HTML</button>
+    </div>
+    <textarea id="source">
+
+class: center, middle, inverse
+
+# My Presentation
+## author : nitish
+## date : today
+???
+
+Notes for the _first_ slide!
+
+---
+
+# Agenda
+
+1. Introduction
+
+2. Deep-dive
+
+3. ...
+
+    - sub item 1
+
+    - sub item 2
+
+[NOTE]: Note that you need active internet connection to access remark.js script file
+---
+
+
+
+# My code
+
+```python
+
+sqr = lambda x: x**2
+sqr(2)
+```
+---
+
+
+# My equation
+
+`\[w(t,s) = \int_{-\infty}^\infty \frac{1}{s} \psi^*\left(\frac{\tau-t}{s}\right) z(\tau) d\tau.\]`
+
+$\sin^{2}x + \cos^{2}x = 1$ (can enclose with `$$` or `[]` or `()`)
+
+---
+
+# My plots
+
+- this is a cool plot
+
+- this is what this means
+
+### summary
+
+- "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+---
+class: layout-2x3
+
+# Test
+
+.grid-layout[
+  .cell-11[
+- Top Left
+- Top Left
+- Top Left
+  ]
+
+  .cell-12[
+- Top Middle
+  ]
+
+  .cell-13[
+- Top Right
+  ]
+
+  .cell-21[
+- Bottom Left
+- Bottom Left
+- Bottom Left
+  ]
+
+  .cell-22[
+- Bottom Middle
+  ]
+
+  .cell-23[
+- Bottom Right
+  ]
+]
+
+    </textarea>
+
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="remark_scripts.js"></script>
+    <script type="application/json" id="layout-data">{}</script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="https://remarkjs.com/remark.language.js" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] } });
+    <!--Browser-specific hack for Safari tilde bug -->
+    <!--thanks to dpvc at https://github.com/mathjax/MathJax/issues/1737-->
+    if (MathJax.Hub.Browser.isSafari && parseInt(MathJax.Hub.Browser.webkit) >= 603) {
+      MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready", function () {
+        var HTMLCSS = MathJax.OutputJax["HTML-CSS"];
+        var MML = MathJax.ElementJax.mml;
+        var toHTML = MML.mo.prototype.toHTML;
+        MML.mo.Augment({
+          toHTML: function (span) {
+            span = toHTML.call(this,span);
+            if (span.bbox.w === 0 && span.bbox.lw < 0 && span.firstChild) {
+              span.style.marginLeft = HTMLCSS.Em(span.bbox.lw);
+            }
+            return span;
+          }
+        });
+      });
+    }
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+  </body>
+</html>
