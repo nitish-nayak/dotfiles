@@ -85,9 +85,9 @@ function setup_neovim {
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     echo "Configuring neovim"
-    ln -s `pwd`/init.vim "~/.config/nvim/init.vim"
+    ln -s `pwd`/init.vim ~/.config/nvim/init.vim
     for i in `pwd`/lua/*; do
-        ln -s "$i" "~/.config/nvim/lua/"`basename "$i"`
+        ln -s "$i" ~/.config/nvim/lua/`basename "$i"`
     done
 
     echo "installing neovim dependencies"
