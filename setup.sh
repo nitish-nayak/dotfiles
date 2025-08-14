@@ -32,7 +32,7 @@ function init_brew {
           xz-utils \
           zlib1g-dev
         sudo apt-get install locales
-        locale-gen en_US.UTF-8
+        sudo locale-gen en_US.UTF-8
         CL=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
         test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
@@ -57,7 +57,7 @@ function init_pre {
     # install some utilities
     brew install coreutils
     brew install htop
-    
+
     # install zsh
     echo "Installing zsh"
     brew install zsh
