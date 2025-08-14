@@ -12,8 +12,8 @@ set nocompatible
 "Vundle
 "-------
 filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin('$HOME/.vim/bundle')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle')
 
 "Vundle - required
 Plugin 'VundleVim/Vundle.vim'

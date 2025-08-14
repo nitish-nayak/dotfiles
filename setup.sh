@@ -68,7 +68,7 @@ function init_pre {
     brew install zlib
 
     curl https://pyenv.run | bash
-    export PYENV_ROOT=$HOME/.pyenv
+    export PYENV_ROOT=~/.pyenv
     export PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
     eval "$(pyenv init --path)"
@@ -95,7 +95,7 @@ function init_pre {
 function box() { t="$1xxxx";c=${2:-=}; echo ${t//?/$c}; echo "$c $1 $c"; echo ${t//?/$c}; }
 
 dir=`pwd`
-olddir="$HOME/".backup
+olddir=~/.backup
 config_folders="shell vim tmux nvim"
 
 if [ ! -d "$olddir" ]; then

@@ -2,7 +2,7 @@
 
 function install_zshutils {
 
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    if [ ! -d ~/.oh-my-zsh ]; then
 
         # install oh-my-zsh
         echo "Installing Oh-My-ZSH"
@@ -10,19 +10,19 @@ function install_zshutils {
 
         ## install oh-my-zsh plugins
         echo "Installing some of my favorite oh-my-zsh plugins.."
-        git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-        git clone https://github.com/laurenkt/zsh-vimto "$HOME"/.oh-my-zsh/custom/plugins/zsh-vimto
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting "$HOME"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+        git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+        git clone https://github.com/laurenkt/zsh-vimto ~/.oh-my-zsh/custom/plugins/zsh-vimto
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
 
     ## install zsh theme
-    if [ ! -d "$HOME/.zsh" ]; then
-        mkdir -p "$HOME/.zsh"
+    if [ ! -d ~/.zsh ]; then
+        mkdir -p ~/.zsh
     fi
-    git clone https://github.com/intelfx/pure.git "$HOME/.zsh/pure"
+    git clone https://github.com/intelfx/pure.git ~/.zsh/pure
 
-    ln -s "$HOME/.zsh/pure/pure.zsh" "$HOME/.zsh/pure/prompt_pure_setup"
-    ln -s "$HOME/.zsh/pure/async.zsh" "$HOME/.zsh/pure/async"
+    ln -s ~/.zsh/pure/pure.zsh ~/.zsh/pure/prompt_pure_setup
+    ln -s ~/.zsh/pure/async.zsh ~/.zsh/pure/async
 
     # install other cool stuff
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
@@ -35,26 +35,26 @@ function setup_shell {
     ln -s `pwd`/custom/aliases ~/.aliases
 
     echo "Setting up shell rc"
-    ln -s `pwd`/zshrc "$HOME"/.myzshrc.sh
-    ln -s `pwd`/bashrc "$HOME"/.mybashrc.sh
+    ln -s `pwd`/zshrc ~/.myzshrc.sh
+    ln -s `pwd`/bashrc ~/.mybashrc.sh
 
-    if ! [ -f "$HOME/.zshrc" ]; then
+    if ! [ -f ~/.zshrc ]; then
         echo "Creating zshrc"
-        touch "$HOME/.zshrc"
+        touch ~/.zshrc
     fi
-    if ! [ -f "$HOME/.bashrc" ]; then
+    if ! [ -f ~/.bashrc ]; then
         echo "Creating bashrc"
-        touch "$HOME/.bashrc"
+        touch ~/.bashrc
     fi
-    echo "source $HOME/.myzshrc.sh" >> "$HOME/.zshrc"
-    echo "source $HOME/.mybashrc.sh" >> "$HOME/.bashrc"
+    echo "source ~/.myzshrc.sh" >> ~/.zshrc
+    echo "source ~/.mybashrc.sh" >> ~/.bashrc
 
     install_zshutils
     echo "Setting up alt zsh theme"
-    ln -s `pwd`/custom/nitish_rr.zsh-theme "$HOME"/.oh-my-zsh/themes/nitish_rr.zsh-theme
+    ln -s `pwd`/custom/nitish_rr.zsh-theme ~/.oh-my-zsh/themes/nitish_rr.zsh-theme
 
     echo "Sourcing"
-    source "$HOME"/.bashrc
+    source ~/.bashrc
 
 }
 

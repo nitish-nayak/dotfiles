@@ -8,20 +8,20 @@ function install_vimutils {
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         echo "Getting my colorscheme"
         wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
-        mkdir -p "$HOME"/.vim/colors/
-        mv badwolf.vim "$HOME"/.vim/colors
+        mkdir -p ~/.vim/colors/
+        mv badwolf.vim ~/.vim/colors
     fi
 }
 
 function setup_vim {
 
-    if [ -f "$HOME/.vimrc" ]; then
+    if [ -f ~/.vimrc ]; then
         echo "Creating backup"
-        mv "$HOME/.vimrc" "$HOME/.backup/vimrc"
+        mv ~/.vimrc ~/.backup/vimrc
     fi
 
     echo "Linking my vimrc"
-    ln -s `pwd`/vimrc "$HOME"/.vimrc
+    ln -s `pwd`/vimrc ~/.vimrc
 
     install_vimutils
     if command -v vim &> /dev/null; then

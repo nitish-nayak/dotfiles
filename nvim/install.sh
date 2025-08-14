@@ -6,7 +6,7 @@ function install_node {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
     # run this first
-    export NVM_DIR="$HOME/.nvm"
+    export NVM_DIR="~/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -19,10 +19,10 @@ function install_node {
 function install_linux {
 
     # rg, fd, bat
-    if [ ! -d "$HOME"/.local/bin ]; then
-        mkdir -p "$HOME"/.local/bin
+    if [ ! -d "~"/.local/bin ]; then
+        mkdir -p "~"/.local/bin
     fi
-    cpexe="$HOME"/.local/bin
+    cpexe="~"/.local/bin
 
     mkdir tmp
     cd tmp
@@ -73,21 +73,21 @@ function install_pre {
 function setup_neovim {
 
     # Link neovim config
-    if [ ! -d "$HOME/.config/nvim" ];then
-        mkdir -p "$HOME/.config/nvim/lua"
+    if [ ! -d "~/.config/nvim" ];then
+        mkdir -p "~/.config/nvim/lua"
     else
         echo "Creating backup"
-        mv "$HOME/.config/nvim" "$HOME/.backup/."
-        mkdir -p "$HOME/.config/nvim/lua"
+        mv "~/.config/nvim" "~/.backup/."
+        mkdir -p "~/.config/nvim/lua"
     fi
 
     echo "Installing vim-plug"
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     echo "Configuring neovim"
-    ln -s `pwd`/init.vim "$HOME/.config/nvim/init.vim"
+    ln -s `pwd`/init.vim "~/.config/nvim/init.vim"
     for i in `pwd`/lua/*; do
-        ln -s "$i" "$HOME/.config/nvim/lua/"`basename "$i"`
+        ln -s "$i" "~/.config/nvim/lua/"`basename "$i"`
     done
 
     echo "installing neovim dependencies"
