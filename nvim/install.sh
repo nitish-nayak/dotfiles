@@ -6,7 +6,7 @@ function install_node {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
     # run this first
-    export NVM_DIR="~/.nvm"
+    export NVM_DIR=~/.nvm
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -19,13 +19,18 @@ function install_node {
 function install_linux {
 
     # rg, fd, bat
-    if [ ! -d "~"/.local/bin ]; then
-        mkdir -p "~"/.local/bin
+    if [ ! -d ~/.local/bin ]; then
+        mkdir -p ~/.local/bin
     fi
-    cpexe="~"/.local/bin
+    cpexe=~/.local/bin
 
     mkdir tmp
     cd tmp
+
+    # install neovim
+    echo "Installing neovim"
+    wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
+    tar zvxf nvim-linux64.tar.gz
 
     echo "Installing bat"
     curl -LO https://github.com/sharkdp/bat/releases/download/v0.23.0/bat-v0.23.0-x86_64-unknown-linux-musl.tar.gz
@@ -43,6 +48,7 @@ function install_linux {
     curl -LO https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
     tar xvf shellcheck-stable.linux.x86_64.tar.xz
 
+    cp nvim-linux64/bin/nvim "$cpexe"/.
     cp bat-v0.23.0-x86_64-unknown-linux-musl/bat "$cpexe"/.
     cp fd-v8.7.0-x86_64-unknown-linux-musl/fd "$cpexe"/.
     cp ripgrep-13.0.0-x86_64-unknown-linux-musl/rg "$cpexe"/.
@@ -73,12 +79,12 @@ function install_pre {
 function setup_neovim {
 
     # Link neovim config
-    if [ ! -d "~/.config/nvim" ];then
-        mkdir -p "~/.config/nvim/lua"
+    if [ ! -d ~/.config/nvim ];then
+        mkdir -p ~/.config/nvim/lua
     else
         echo "Creating backup"
-        mv "~/.config/nvim" "~/.backup/."
-        mkdir -p "~/.config/nvim/lua"
+        mv ~/.config/nvim ~/.backup/.
+        mkdir -p ~/.config/nvim/lua
     fi
 
     echo "Installing vim-plug"

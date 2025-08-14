@@ -14,8 +14,8 @@ function init_brew {
     if [ $(uname) == "Darwin" ]; then
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     elif [[ -n `uname -a | grep 'Ubuntu'` ]]; then
-        apt update
-        apt-get install build-essential procps curl file git \
+        sudo apt update
+        sudo apt-get install build-essential procps curl file git \
           libbz2-dev \
           libffi-dev \
           liblzma-dev \
@@ -31,9 +31,9 @@ function init_brew {
           wget \
           xz-utils \
           zlib1g-dev
-        apt-get install locales
+        sudo apt-get install locales
         locale-gen en_US.UTF-8
-        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        CL=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
         test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
         test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -81,10 +81,6 @@ function init_pre {
     # install vim
     echo "Installing vim"
     brew install vim
-
-    # install neovim
-    echo "Installing neovim"
-    brew install neovim
 
     # install tmux
     echo "Installing tmux"
