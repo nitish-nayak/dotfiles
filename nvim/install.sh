@@ -97,9 +97,9 @@ function setup_neovim {
     done
 
     echo "installing neovim dependencies"
-    if [[ "$(uname)" == "Darwin" || -n `uname -a | grep 'Ubuntu'` ]]; then
+    if [ "$(uname)" == "Darwin" ]; then
         install_pre
-    elif [ "$(uname)" == "Linux" ]; then
+    elif [[ "$(uname)" == "Linux" || -n `uname -a | grep 'Ubuntu'` ]]; then
         install_linux
     else
         exit 1
