@@ -43,33 +43,26 @@ vim.g.diagnostics_active = false
 function _G.toggle_diagnostics()
   if vim.g.diagnostics_active then
     vim.g.diagnostics_active = false
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
   else
     vim.g.diagnostics_active = true
     vim.diagnostic.enable()
   end
 end
 
-
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  -- Mappings.
-  local opts = { noremap=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', '<leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>ci', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<leader>ch', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<leader>cs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>ce', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '<leader>[',  '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', '<leader>]',  '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-
-  vim.keymap.set('n', '<leader>cn', vim.lsp.buf.rename, opts)
-  vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', '<leader>ct', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
-end
+-- See `:help vim.lsp.*` for documentation on any of the below functions
+local opts = { noremap=true }
+vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, opts)
+vim.keymap.set('n', '<leader>ci', vim.lsp.buf.implementation, opts)
+vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, opts)
+vim.keymap.set('n', '<leader>cs', vim.lsp.buf.signature_help, opts)
+vim.keymap.set('n', '<leader>cr', vim.lsp.buf.references, opts)
+vim.keymap.set('n', '<leader>ce', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<leader>[',  vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<leader>]',  vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>cn', vim.lsp.buf.rename, opts)
+vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
+vim.keymap.set('n', '<leader>ct', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
 
 
 require("mason").setup()
@@ -81,11 +74,10 @@ lspconfig.pyright.setup {
    handlers = {
      ["textDocument/publishDiagnostics"] = function() end,
    },
-   on_attach = on_attach,
    capabilities = capabilities
 }
 
-vim.diagnostic.disable()
+vim.diagnostic.enable(false)
 
 vim.diagnostic.config({
     virtual_text = false,
