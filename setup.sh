@@ -82,6 +82,10 @@ function init_pre {
     echo "Installing vim"
     brew install vim
 
+    # install neovim
+    echo "Installing neovim"
+    brew install neovim
+
     # install tmux
     echo "Installing tmux"
     brew install tmux

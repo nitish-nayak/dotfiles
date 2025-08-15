@@ -24,14 +24,17 @@ function install_linux {
     fi
     cpexe=~/.local/bin
 
+    # install neovim
+    orig_dir=`pwd`
+    cd ~/.local
+    echo "Installing neovim"
+    wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux64.tar.gz
+    tar zvxf nvim-linux64.tar.gz
+    ln -s ~/.local/nvim-linux64/bin/nvim ~/.local/bin/nvim
+    cd $orig_dir
+
     mkdir tmp
     cd tmp
-
-    # install neovim
-    echo "Installing neovim"
-    wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
-    tar zvxf nvim-linux64.tar.gz
-
     echo "Installing bat"
     curl -LO https://github.com/sharkdp/bat/releases/download/v0.23.0/bat-v0.23.0-x86_64-unknown-linux-musl.tar.gz
     tar zvxf bat-v0.23.0-x86_64-unknown-linux-musl.tar.gz
@@ -48,7 +51,6 @@ function install_linux {
     curl -LO https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz
     tar xvf shellcheck-stable.linux.x86_64.tar.xz
 
-    cp nvim-linux64/bin/nvim "$cpexe"/.
     cp bat-v0.23.0-x86_64-unknown-linux-musl/bat "$cpexe"/.
     cp fd-v8.7.0-x86_64-unknown-linux-musl/fd "$cpexe"/.
     cp ripgrep-13.0.0-x86_64-unknown-linux-musl/rg "$cpexe"/.
@@ -97,9 +99,9 @@ function setup_neovim {
     done
 
     echo "installing neovim dependencies"
-    if [ "$(uname)" == "Darwin" ]; then
+    if [[ "$(uname)" == "Darwin" || -n `uname -a | grep 'Ubuntu'` ]]; then
         install_pre
-    elif [[ "$(uname)" == "Linux" || -n `uname -a | grep 'Ubuntu'` ]]; then
+    elif [ "$(uname)" == "Linux" ]; then
         install_linux
     else
         exit 1
