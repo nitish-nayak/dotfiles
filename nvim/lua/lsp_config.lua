@@ -77,26 +77,12 @@ require("mason-lspconfig").setup{
   ensure_installed = { "pyright", "clangd", "lua_ls", "bashls"},
 }
 
--- new lsp servers get default on_attach and capabilities but can be configured differently
-require("mason-lspconfig").setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
-    function (server_name) -- default handler (optional)
-        lspconfig[server_name].setup {on_attach = on_attach, capabilities=capabilities}
-    end,
-    -- -- Next, you can provide a dedicated handler for specific servers.
-    -- -- For example, a handler override for the `pyright`:
-    -- -- disable all diagnostics
-    ["pyright"] = function ()
-         lspconfig.pyright.setup {
-             handlers = {
-               ["textDocument/publishDiagnostics"] = function() end,
-             },
-             on_attach = on_attach,
-             capabilities = capabilities
-         }
-    end
+lspconfig.pyright.setup {
+   handlers = {
+     ["textDocument/publishDiagnostics"] = function() end,
+   },
+   on_attach = on_attach,
+   capabilities = capabilities
 }
 
 vim.diagnostic.disable()
